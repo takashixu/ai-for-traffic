@@ -4,6 +4,11 @@ import sys
 
 import pandas as pd
 
+import sumolib
+
+sumo_binary = sumolib.checkBinary('sumo')
+print(f"Using SUMO binary at: {sumo_binary}")
+
 
 if "SUMO_HOME" in os.environ:
     tools = os.path.join(os.environ["SUMO_HOME"], "tools")
@@ -24,9 +29,9 @@ if __name__ == "__main__":
     episodes = 4
 
     env = SumoEnvironment(
-        net_file=Path.cwd()/"sumo_rl"/"nets"/"4x4-Lucas"/"4x4.net.xml",
-        route_file=Path.cwd()/"sumo_rl"/"nets"/"4x4-Lucas"/"4x4c1c2c1c2.rou.xml",
-        use_gui=False,
+        net_file=Path.cwd()/"nets"/"single-intersection.net.xml",
+        route_file=Path.cwd()/"nets"/"single-intersection.rou.xml",
+        use_gui=True,
         num_seconds=80000,
         min_green=5,
         delta_time=5,
@@ -62,6 +67,6 @@ if __name__ == "__main__":
                 for agent_id in s.keys():
                     ql_agents[agent_id].learn(next_state=env.encode(s[agent_id], agent_id), reward=r[agent_id])
 
-            env.save_csv(str(Path.cwd()/"outputs"/"4x4"/"ql-4x4grid_run"/f"{run}"), episode)
+            env.save_csv(str(Path.cwd()/"outputs"/"single-intersection_run"), episode)
 
     env.close()

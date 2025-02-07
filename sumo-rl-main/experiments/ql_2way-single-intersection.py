@@ -13,6 +13,7 @@ else:
 from sumo_rl import SumoEnvironment
 from sumo_rl.agents import QLAgent
 from sumo_rl.exploration import EpsilonGreedy
+from pathlib import Path
 
 
 if __name__ == "__main__":
@@ -23,7 +24,7 @@ if __name__ == "__main__":
         "-route",
         dest="route",
         type=str,
-        default="nets/2way-single-intersection/single-intersection-vhvh.rou.xml",
+        default=Path.cwd()/"sumo_rl"/"nets"/"2way-single-intersection"/"single-intersection-vhvh.rou.xml",
         help="Route definition xml file.\n",
     )
     prs.add_argument("-a", dest="alpha", type=float, default=0.1, required=False, help="Alpha learning rate.\n")
@@ -33,7 +34,7 @@ if __name__ == "__main__":
     prs.add_argument("-d", dest="decay", type=float, default=1.0, required=False, help="Epsilon decay.\n")
     prs.add_argument("-mingreen", dest="min_green", type=int, default=10, required=False, help="Minimum green time.\n")
     prs.add_argument("-maxgreen", dest="max_green", type=int, default=30, required=False, help="Maximum green time.\n")
-    prs.add_argument("-gui", action="store_true", default=False, help="Run with visualization on SUMO.\n")
+    prs.add_argument("-gui", action="store_true", default=True, help="Run with visualization on SUMO.\n")
     prs.add_argument("-fixed", action="store_true", default=False, help="Run with fixed timing traffic signals.\n")
     prs.add_argument("-s", dest="seconds", type=int, default=100000, required=False, help="Number of simulation seconds.\n")
     prs.add_argument(
@@ -50,7 +51,7 @@ if __name__ == "__main__":
     out_csv = f"outputs/2way-single-intersection/{experiment_time}_alpha{args.alpha}_gamma{args.gamma}_eps{args.epsilon}_decay{args.decay}_reward{args.reward}"
 
     env = SumoEnvironment(
-        net_file="sumo_rl/nets/2way-single-intersection/single-intersection.net.xml",
+        net_file=Path.cwd()/"sumo_rl"/"nets"/"2way-single-intersection"/"single-intersection.net.xml",
         route_file=args.route,
         out_csv_name=out_csv,
         use_gui=args.gui,
