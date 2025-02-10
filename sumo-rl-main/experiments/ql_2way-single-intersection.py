@@ -24,7 +24,7 @@ if __name__ == "__main__":
         "-route",
         dest="route",
         type=str,
-        default=Path.cwd()/"sumo_rl"/"nets"/"2way-single-intersection"/"single-intersection-vhvh.rou.xml",
+        default=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"nets"/"2way-single-intersection"/"single-intersection-vhvh.rou.xml",
         help="Route definition xml file.\n",
     )
     prs.add_argument("-a", dest="alpha", type=float, default=0.1, required=False, help="Alpha learning rate.\n")
@@ -51,10 +51,10 @@ if __name__ == "__main__":
     out_csv = f"outputs/2way-single-intersection/{experiment_time}_alpha{args.alpha}_gamma{args.gamma}_eps{args.epsilon}_decay{args.decay}_reward{args.reward}"
 
     env = SumoEnvironment(
-        net_file=Path.cwd()/"sumo_rl"/"nets"/"2way-single-intersection"/"single-intersection.net.xml",
+        net_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"nets"/"2way-single-intersection"/"single-intersection.net.xml",
         route_file=args.route,
         out_csv_name=out_csv,
-        use_gui=args.gui,
+        use_gui=False,
         num_seconds=args.seconds,
         min_green=args.min_green,
         max_green=args.max_green,

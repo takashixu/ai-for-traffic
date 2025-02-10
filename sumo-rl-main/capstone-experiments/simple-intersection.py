@@ -3,8 +3,13 @@ import os
 import sys
 
 import pandas as pd
-
+from pathlib import Path
 import sumolib
+
+local_sumo_rl_path = Path(__file__).resolve().parent.parent
+if not local_sumo_rl_path.exists():
+    sys.exit(f"Local sumo_rl path does not exist: {local_sumo_rl_path}")
+sys.path.insert(0, str(local_sumo_rl_path))
 
 sumo_binary = sumolib.checkBinary('sumo')
 print(f"Using SUMO binary at: {sumo_binary}")
@@ -19,6 +24,7 @@ else:
 from sumo_rl import SumoEnvironment
 from sumo_rl.agents import QLAgent
 from sumo_rl.exploration import EpsilonGreedy
+from sumo_rl.environment.observations import DiscreteObservationFunction
 from pathlib import Path
 
 if __name__ == "__main__":
@@ -29,10 +35,11 @@ if __name__ == "__main__":
     episodes = 4
 
     env = SumoEnvironment(
-        net_file=Path.cwd()/"nets"/"single-intersection.net.xml",
-        route_file=Path.cwd()/"nets"/"single-intersection.rou.xml",
-        use_gui=True,
+        net_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"nets"/"single-intersection"/"single-intersection.net.xml",
+        route_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"nets"/"single-intersection"/"single-intersection.rou.xml",
+        use_gui=False,
         num_seconds=80000,
+        observation_class=DiscreteObservationFunction,
         min_green=5,
         delta_time=5,
     )

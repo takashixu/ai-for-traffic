@@ -14,6 +14,12 @@ else:
 from sumo_rl import SumoEnvironment
 from sumo_rl.agents import QLAgent
 from sumo_rl.exploration import EpsilonGreedy
+from pathlib import Path
+
+local_sumo_rl_path = Path(__file__).resolve().parent.parent
+if not local_sumo_rl_path.exists():
+    sys.exit(f"Local sumo_rl path does not exist: {local_sumo_rl_path}")
+sys.path.insert(0, str(local_sumo_rl_path))
 
 
 if __name__ == "__main__":
@@ -24,7 +30,7 @@ if __name__ == "__main__":
         "-route",
         dest="route",
         type=str,
-        default="sumo_rl/nets/single-intersection/single-intersection.rou.xml",
+        default=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"nets"/"single-intersection"/"single-intersection.rou.xml",
         help="Route definition xml file.\n",
     )
     prs.add_argument("-a", dest="alpha", type=float, default=0.1, required=False, help="Alpha learning rate.\n")
@@ -46,16 +52,16 @@ if __name__ == "__main__":
     out_csv = f"outputs/single-intersection/{experiment_time}_alpha{args.alpha}_gamma{args.gamma}_eps{args.epsilon}_decay{args.decay}"
 
     env = SumoEnvironment(
-        net_file="sumo_rl/nets/single-intersection/single-intersection.net.xml",
+        net_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"nets"/"single-intersection"/"single-intersection.net.xml",
         route_file=args.route,
         out_csv_name=out_csv,
-        use_gui=args.gui,
-        num_seconds=args.seconds,
+        use_gui=False,
+        num_seconds=1000,
         min_green=args.min_green,
         max_green=args.max_green,
     )
 
-    for run in range(1, args.runs + 1):
+    for run in range(1, 3):
         initial_states = env.reset()
         ql_agents = {
             ts: QLAgent(
