@@ -286,6 +286,25 @@ class TrafficSignal:
     def get_total_queued(self) -> int:
         """Returns the total number of vehicles halting in the intersection."""
         return sum(self.sumo.lane.getLastStepHaltingNumber(lane) for lane in self.lanes)
+    
+    def categorize_queue_density(self) -> List[str]:
+        """
+        Categorizes the queue density for each incoming lane into three levels:
+        low, medium, or high.
+        
+        Returns:
+            List[str]: A list of strings indicating the density category for each lane.
+        """
+        densities = self.get_lanes_density()  # Each density is a float between 0 and 1.
+        categories = []
+        for d in densities:
+            if d < 0.33:
+                categories.append(0)
+            elif d < 0.66:
+                categories.append(1)
+            else:
+                categories.append(2)
+        return categories
 
     def _get_veh_list(self):
         veh_list = []

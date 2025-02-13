@@ -299,11 +299,11 @@ class TrafficSignal:
         categories = []
         for d in densities:
             if d < 0.33:
-                categories.append("low")
+                categories.append(0)
             elif d < 0.66:
-                categories.append("medium")
+                categories.append(1)
             else:
-                categories.append("high")
+                categories.append(2)
         return categories
 
     def _get_veh_list(self):

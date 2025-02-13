@@ -27,6 +27,8 @@ from sumo_rl.exploration import EpsilonGreedy
 from sumo_rl.environment.observations import DiscreteObservationFunction
 from pathlib import Path
 
+print(Path.cwd())
+
 if __name__ == "__main__":
     alpha = 0.1
     gamma = 0.99
@@ -39,7 +41,7 @@ if __name__ == "__main__":
         route_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"nets"/"single-intersection"/"single-intersection.rou.xml",
         use_gui=False,
         num_seconds=80000,
-        observation_class=DiscreteObservationFunction,
+        # observation_class=DiscreteObservationFunction,
         min_green=5,
         delta_time=5,
     )
@@ -74,6 +76,6 @@ if __name__ == "__main__":
                 for agent_id in s.keys():
                     ql_agents[agent_id].learn(next_state=env.encode(s[agent_id], agent_id), reward=r[agent_id])
 
-            env.save_csv(str(Path.cwd()/"outputs"/"single-intersection_run"), episode)
+            env.save_csv(str(Path.cwd()/"sumo-rl-main"/"capstone-experiments"/"outputs"/"continuous-test-run"), episode)
 
     env.close()
