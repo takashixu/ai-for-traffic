@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-02-24 21:58:13.237789 by osmWebWizard.py v1_20_0+0002-343658e7c64
+<configuration>
+    <net-file value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-24-21-58-04\osm.net.xml.gz"/>
+    <ptlines-file value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-24-21-58-04\osm_ptlines.xml"/>
+    <ptstops-file value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-24-21-58-04\osm_stops.add.xml"/>
+    <output-file value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-24-21-58-04\osm_pt.rou.xml"/>
+    <stopinfos-file value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-24-21-58-04\stopinfos.xml"/>
+    <routes-file value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-24-21-58-04\vehroutes.xml"/>
+    <trips-file value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-24-21-58-04\trips.trips.xml"/>
+    <end value="10000.0"/>
+    <min-stops value="0"/>
+    <extend-to-fringe value="True"/>
+    <random-begin value="True"/>
+    <seed value="42"/>
+    <ignore-errors value="True"/>
+    <vtype-prefix value="pt_"/>
+    <verbose value="True"/>
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="pt_bus" vClass="bus"/>
+    <vType id="pt_tram" vClass="tram"/>
+    <vType id="pt_train" vClass="rail"/>
+    <vType id="pt_subway" vClass="subway"/>
+    <vType id="pt_light_rail" vClass="rail_urban"/>
+    <vType id="pt_monorail" vClass="rail_urban"/>
+    <vType id="pt_trolleybus" vClass="bus"/>
+    <vType id="pt_minibus" vClass="bus"/>
+    <vType id="pt_share_taxi" vClass="taxi"/>
+    <vType id="pt_aerialway" vClass="cable_car" length="2.5" width="2" personCapacity="4"/>
+    <vType id="pt_ferry" vClass="ship"/>
+    <route id="pt_bus_52:0" edges="679682614" >
+        <stop busStop="6364416038" duration="20" until="35.0"/> <!-- Bancroft Way & Telegraph Avenue -->
+    </route>
+    <route id="pt_bus_51B:1" color="57,163,82" edges="196779226#1 196779226#2 196779226#3 196779226#4 196779226#5 196779226#8" >
+        <stop busStop="6561839360" duration="20" until="39.0"/> <!-- Durant Avenue & Dana Street -->
+    </route>
+    <route id="pt_bus_52:1" edges="679682614 279321232" >
+        <stop busStop="6364416038" duration="20" until="34.0"/> <!-- Bancroft Way & Telegraph Avenue -->
+    </route>
+    <route id="pt_bus_51B:0" color="57,163,82" edges="21456366#0 21456366#1 21456366#2 749905614#0 195433863#1 195433863#2 195433863#3 679682614 279321232" >
+        <stop busStop="6410508155" duration="20" until="71.0"/> <!-- Bancroft Way & Telegraph Avenue -->
+    </route>
+    <route id="pt_bus_51B:2" color="57,163,82" edges="21456366#0 21456366#1 21456366#2 749905614#0 195433863#1 195433863#2 195433863#3 679682614 279321232" >
+        <stop busStop="6410508155" duration="20" until="74.0"/> <!-- Bancroft Way & Telegraph Avenue -->
+    </route>
+    <route id="pt_bus_51B:3" color="57,163,82" edges="196779226#1 196779226#2 196779226#3 196779226#4 196779226#5 196779226#8" >
+        <stop busStop="6561839360" duration="20" until="41.0"/> <!-- Durant Avenue & Dana Street -->
+    </route>
+    <route id="pt_bus_7:0" edges="196779226#1 196779226#2 196779226#3 196779226#4 196779226#5 196779226#8" >
+        <stop busStop="6561839360" duration="20" until="73.0"/> <!-- Durant Avenue & Dana Street -->
+    </route>
+    <route id="pt_bus_7:1" edges="21456366#0 21456366#1 21456366#2 749905614#0 195433863#1 195433863#2 195433863#3 679682614 279321232" >
+        <stop busStop="6410508155" duration="20" until="99.0"/> <!-- Bancroft Way & Telegraph Avenue -->
+    </route>
+    <route id="pt_bus_851:0" edges="21456366#0 21456366#1 21456366#2 749905614#0 195433863#1 195433863#2 195433863#3 679682614 279321232" >
+        <stop busStop="6410508155" duration="20" until="114.0"/> <!-- Bancroft Way & Telegraph Avenue -->
+    </route>
+    <route id="pt_bus_851:1" edges="196779226#1 196779226#2 196779226#3 196779226#4 196779226#5 196779226#8" >
+        <stop busStop="6561839360" duration="20" until="38.0"/> <!-- Durant Avenue & Dana Street -->
+    </route>
+    <route id="pt_bus_F:0" edges="21456366#0 21456366#1 21456366#2 749905614#0 195433863#1 195433863#2 195433863#3 679682614 279321232" >
+        <stop busStop="283057547" duration="20" until="95.0"/> <!-- Bancroft Way & Telegraph Avenue -->
+    </route>
+    <route id="pt_bus_36:0" edges="196779226#1 196779226#2 196779226#3 196779226#4 196779226#5 196779226#8" >
+        <stop busStop="6561839360" duration="20" until="41.0"/> <!-- Durant Avenue & Dana Street -->
+    </route>
+    <route id="pt_bus_F:1" edges="21456366#0 21456366#1 21456366#2 749905614#0 195433863#1 195433863#2 195433863#3 679682614 279321232" >
+        <stop busStop="283057547" duration="20" until="112.0"/> <!-- Bancroft Way & Telegraph Avenue -->
+    </route>
+    <route id="pt_bus_79:0" edges="196779226#1 196779226#2 196779226#3 196779226#4 196779226#5 196779226#8" >
+        <stop busStop="6561839360" duration="20" until="49.0"/> <!-- Durant Avenue & Dana Street -->
+    </route>
+    <route id="pt_bus_79:1" edges="21456366#0 21456366#1 21456366#2 749905614#0 195433863#1 195433863#2 195433863#3 679682614 279321232" >
+        <stop busStop="283057547" duration="20" until="99.0"/> <!-- Bancroft Way & Telegraph Avenue -->
+    </route>
+    <route id="pt_bus_6:0" edges="1078778152#1 195433863#1 195433863#2 195433863#3 679682614 279321232" >
+        <stop busStop="6364416038" duration="20" until="82.0"/> <!-- Bancroft Way & Telegraph Avenue -->
+    </route>
+    <route id="pt_bus_36:1" edges="21456366#0 21456366#1 21456366#2 749905614#0 195433863#1 195433863#2 195433863#3 679682614 279321232" >
+        <stop busStop="283057547" duration="20" until="104.0"/> <!-- Bancroft Way & Telegraph Avenue -->
+    </route>
+    <route id="pt_bus_P:0" edges="21456366#0 21456366#1 21456366#2 749905614#0 195433863#1 195433863#2 195433863#3 679682614 279321232" >
+        <stop busStop="6561948718" duration="20" until="31.0"/> <!-- Bancroft Way & Bowditch Street -->
+    </route>
+    <route id="pt_bus_N:0" edges="21456366#0 21456366#1 21456366#2 749905614#0 195433863#1 195433863#2 195433863#3 679682614 279321232" >
+        <stop busStop="6561948718" duration="20" until="31.0"/> <!-- Bancroft Way & Bowditch Street -->
+    </route>
+    <flow id="pt_bus_52:0" type="pt_bus" route="pt_bus_52:0" begin="17.0" end="10017.0" period="600" line="52:0" >
+        <param key="name" value="AC Transit 52: University Village =&gt; U.C. Campus"/>
+        <param key="completeness" value="0.02"/>
+    </flow>
+    <flow id="pt_bus_51B:1" type="pt_bus" route="pt_bus_51B:1" begin="15.0" end="10015.0" period="600" line="51B:1" >
+        <param key="name" value="AC Transit 51B: Berkeley Marina =&gt; Rockridge BART"/>
+        <param key="completeness" value="0.02"/>
+    </flow>
+    <flow id="pt_bus_52:1" type="pt_bus" route="pt_bus_52:1" begin="57.0" end="10057.0" period="600" line="52:1" >
+        <param key="name" value="AC Transit 52: U.C. Campus =&gt; University Village"/>
+        <param key="completeness" value="0.02"/>
+    </flow>
+    <flow id="pt_bus_51B:0" type="pt_bus" route="pt_bus_51B:0" begin="15.0" end="10015.0" period="600" line="51B:0" >
+        <param key="name" value="AC Transit 51B: Rockridge BART =&gt; Berkeley Marina"/>
+        <param key="completeness" value="0.02"/>
+    </flow>
+    <flow id="pt_bus_51B:2" type="pt_bus" route="pt_bus_51B:2" begin="119.0" end="10119.0" period="600" line="51B:2" >
+        <param key="name" value="AC Transit 51B: Rockridge BART =&gt; Berkeley Amtrak"/>
+        <param key="completeness" value="0.02"/>
+    </flow>
+    <flow id="pt_bus_51B:3" type="pt_bus" route="pt_bus_51B:3" begin="131.0" end="10131.0" period="600" line="51B:3" >
+        <param key="name" value="AC Transit 51B: Berkeley Amtrak =&gt; Rockridge BART"/>
+        <param key="completeness" value="0.02"/>
+    </flow>
+    <flow id="pt_bus_7:0" type="pt_bus" route="pt_bus_7:0" begin="137.0" end="10137.0" period="600" line="7:0" >
+        <param key="name" value="AC Transit 7: El Cerrito del Norte BART =&gt; Emeryville Amtrak"/>
+        <param key="completeness" value="0.01"/>
+    </flow>
+    <flow id="pt_bus_7:1" type="pt_bus" route="pt_bus_7:1" begin="133.0" end="10133.0" period="600" line="7:1" >
+        <param key="name" value="AC Transit 7: Emeryville Amtrak =&gt; El Cerrito del Norte BART"/>
+        <param key="completeness" value="0.01"/>
+    </flow>
+    <flow id="pt_bus_851:0" type="pt_bus" route="pt_bus_851:0" begin="165.0" end="10165.0" period="600" line="851:0" >
+        <param key="name" value="AC Transit 851: Fruitvale BART =&gt; Downtown Berkeley"/>
+        <param key="completeness" value="0.01"/>
+    </flow>
+    <flow id="pt_bus_851:1" type="pt_bus" route="pt_bus_851:1" begin="253.0" end="10253.0" period="600" line="851:1" >
+        <param key="name" value="AC Transit 851: Downtown Berkeley =&gt; Fruitvale BART"/>
+        <param key="completeness" value="0.01"/>
+    </flow>
+    <flow id="pt_bus_F:0" type="pt_bus" route="pt_bus_F:0" begin="303.0" end="10303.0" period="600" line="F:0" >
+        <param key="name" value="AC Transit F: U.C. Campus =&gt; Salesforce Transit Center"/>
+        <param key="completeness" value="0.01"/>
+    </flow>
+    <flow id="pt_bus_36:0" type="pt_bus" route="pt_bus_36:0" begin="353.0" end="10353.0" period="600" line="36:0" >
+        <param key="name" value="AC Transit 36: West Oakland BART =&gt; U.C. Campus"/>
+        <param key="completeness" value="0.01"/>
+    </flow>
+    <flow id="pt_bus_F:1" type="pt_bus" route="pt_bus_F:1" begin="326.0" end="10326.0" period="600" line="F:1" >
+        <param key="name" value="AC Transit F: Salesforce Transit Center =&gt; U.C. Campus"/>
+        <param key="completeness" value="0.01"/>
+    </flow>
+    <flow id="pt_bus_79:0" type="pt_bus" route="pt_bus_79:0" begin="383.0" end="10383.0" period="1800" line="79:0" >
+        <param key="name" value="AC Transit 79: El Cerrito Plaza BART =&gt; Rockridge BART"/>
+        <param key="completeness" value="0.01"/>
+    </flow>
+    <flow id="pt_bus_79:1" type="pt_bus" route="pt_bus_79:1" begin="389.0" end="10389.0" period="1800" line="79:1" >
+        <param key="name" value="AC Transit 79: Rockridge BART =&gt; El Cerrito Plaza BART"/>
+        <param key="completeness" value="0.01"/>
+    </flow>
+    <flow id="pt_bus_6:0" type="pt_bus" route="pt_bus_6:0" begin="406.0" end="10406.0" period="600" line="6:0" >
+        <param key="name" value="AC Transit 6: Downtown Oakland =&gt; Downtown Berkeley"/>
+        <param key="completeness" value="0.02"/>
+    </flow>
+    <flow id="pt_bus_36:1" type="pt_bus" route="pt_bus_36:1" begin="441.0" end="10441.0" period="600" line="36:1" >
+        <param key="name" value="AC Transit 36: U.C. Campus =&gt; West Oakland BART"/>
+        <param key="completeness" value="0.01"/>
+    </flow>
+    <flow id="pt_bus_P:0" type="pt_bus" route="pt_bus_P:0" begin="485.0" end="10485.0" period="600" line="P:0" >
+        <param key="name" value="Bear Transit P: Downtown Berkeley =&gt; Hearst Mining Circle =&gt; Downtown Berkeley"/>
+        <param key="completeness" value="0.03"/>
+    </flow>
+    <flow id="pt_bus_N:0" type="pt_bus" route="pt_bus_N:0" begin="535.0" end="10535.0" period="600" line="N:0" >
+        <param key="name" value="Bear Transit N: Downtown Berkeley BART =&gt; Hearst Mining Circle =&gt; Downtown Berkeley BART"/>
+        <param key="completeness" value="0.02"/>
+    </flow>
+</routes>

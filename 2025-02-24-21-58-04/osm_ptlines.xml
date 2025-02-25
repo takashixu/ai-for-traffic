@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-02-24 21:58:11 by Eclipse SUMO netconvert Version 1.20.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <type-files value="${SUMO_HOME}/data/typemap/osmNetconvert.typ.xml,${SUMO_HOME}/data/typemap/osmNetconvertUrbanDe.typ.xml,${SUMO_HOME}/data/typemap/osmNetconvertPedestrians.typ.xml,${SUMO_HOME}/data/typemap/osmNetconvertBicycle.typ.xml,${SUMO_HOME}/data/typemap/osmNetconvertAerialway.typ.xml"/>
+        <osm-files value="osm_bbox.osm.xml.gz"/>
+    </input>
+
+    <output>
+        <output-file value="osm.net.xml.gz"/>
+        <output.street-names value="true"/>
+        <output.original-names value="true"/>
+        <ptstop-output value="osm_stops.add.xml"/>
+        <ptline-output value="osm_ptlines.xml"/>
+    </output>
+
+    <projection>
+        <proj.utm value="true"/>
+    </projection>
+
+    <processing>
+        <geometry.remove value="true"/>
+        <roundabouts.guess value="true"/>
+    </processing>
+
+    <tls_building>
+        <tls.discard-simple value="true"/>
+        <tls.join value="true"/>
+        <tls.guess-signals value="true"/>
+        <tls.default-type value="actuated"/>
+    </tls_building>
+
+    <ramp_guessing>
+        <ramps.guess value="true"/>
+    </ramp_guessing>
+
+    <junctions>
+        <junctions.join value="true"/>
+        <junctions.corner-detail value="5"/>
+    </junctions>
+
+    <pedestrian>
+        <crossings.guess value="true"/>
+    </pedestrian>
+
+    <railway>
+        <railway.topology.repair value="true"/>
+    </railway>
+
+    <formats>
+        <osm.bike-access value="true"/>
+        <osm.sidewalks value="true"/>
+    </formats>
+
+</configuration>
+-->
+
+<ptLines xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/ptlines_file.xsd">
+    <ptLine id="2630080" name="AC Transit 51B: Rockridge BART =&gt; Berkeley Marina" line="51B" type="bus" vClass="bus" color="57,163,82" completeness="0.02" missingBefore="22" missingAfter="33">
+        <route edges="21456366#0 21456366#1 21456366#2 749905614#0 195433863#1 195433863#2 195433863#3 679682614 279321232"/>
+        <busStop id="6410508155" name="Bancroft Way &amp; Telegraph Avenue"/>
+    </ptLine>
+    <ptLine id="2630081" name="AC Transit 51B: Berkeley Marina =&gt; Rockridge BART" line="51B" type="bus" vClass="bus" color="57,163,82" completeness="0.02" missingBefore="36" missingAfter="29">
+        <route edges="196779226#1 196779226#2 196779226#3 196779226#4 196779226#5 196779226#8"/>
+        <busStop id="6561839360" name="Durant Avenue &amp; Dana Street"/>
+    </ptLine>
+    <ptLine id="2630160" name="AC Transit 52: University Village =&gt; U.C. Campus" line="52" type="bus" vClass="bus" completeness="0.02" missingBefore="57" missingAfter="1">
+        <route edges="21456366#0 21456366#1 21456366#2 749905614#0 195433863#1 195433863#2 195433863#3"/>
+        <busStop id="6364416038" name="Bancroft Way &amp; Telegraph Avenue"/>
+    </ptLine>
+    <ptLine id="2630161" name="AC Transit 52: U.C. Campus =&gt; University Village" line="52" type="bus" vClass="bus" completeness="0.02" missingAfter="49">
+        <route edges="679682614 279321232"/>
+        <busStop id="6364416038" name="Bancroft Way &amp; Telegraph Avenue"/>
+    </ptLine>
+    <ptLine id="2640395" name="AC Transit 51B: Rockridge BART =&gt; Berkeley Amtrak" line="51B" type="bus" vClass="bus" color="57,163,82" completeness="0.02" missingBefore="22" missingAfter="29">
+        <route edges="21456366#0 21456366#1 21456366#2 749905614#0 195433863#1 195433863#2 195433863#3 679682614 279321232"/>
+        <busStop id="6410508155" name="Bancroft Way &amp; Telegraph Avenue"/>
+    </ptLine>
+    <ptLine id="2640396" name="AC Transit 51B: Berkeley Amtrak =&gt; Rockridge BART" line="51B" type="bus" vClass="bus" color="57,163,82" completeness="0.02" missingBefore="32" missingAfter="29">
+        <route edges="196779226#1 196779226#2 196779226#3 196779226#4 196779226#5 196779226#8"/>
+        <busStop id="6561839360" name="Durant Avenue &amp; Dana Street"/>
+    </ptLine>
+    <ptLine id="2643555" name="AC Transit 7: El Cerrito del Norte BART =&gt; Emeryville Amtrak" line="7" type="bus" vClass="bus" completeness="0.01" missingBefore="112" missingAfter="47">
+        <route edges="196779226#1 196779226#2 196779226#3 196779226#4 196779226#5 196779226#8"/>
+        <busStop id="6561839360" name="Durant Avenue &amp; Dana Street"/>
+    </ptLine>
+    <ptLine id="2643556" name="AC Transit 7: Emeryville Amtrak =&gt; El Cerrito del Norte BART" line="7" type="bus" vClass="bus" completeness="0.01" missingBefore="52" missingAfter="105">
+        <route edges="21456366#0 21456366#1 21456366#2 749905614#0 195433863#1 195433863#2 195433863#3 679682614 279321232"/>
+        <busStop id="6410508155" name="Bancroft Way &amp; Telegraph Avenue"/>
+    </ptLine>
+    <ptLine id="2717779" name="AC Transit 851: Fruitvale BART =&gt; Downtown Berkeley" line="851" type="bus" vClass="bus" completeness="0.01" missingBefore="102" missingAfter="9">
+        <route edges="21456366#0 21456366#1 21456366#2 749905614#0 195433863#1 195433863#2 195433863#3 679682614 279321232"/>
+        <busStop id="6410508155" name="Bancroft Way &amp; Telegraph Avenue"/>
+    </ptLine>
+    <ptLine id="2717780" name="AC Transit 851: Downtown Berkeley =&gt; Fruitvale BART" line="851" type="bus" vClass="bus" completeness="0.01" missingBefore="8" missingAfter="105">
+        <route edges="196779226#1 196779226#2 196779226#3 196779226#4 196779226#5 196779226#8"/>
+        <busStop id="6561839360" name="Durant Avenue &amp; Dana Street"/>
+    </ptLine>
+    <ptLine id="2718359" name="AC Transit F: U.C. Campus =&gt; Salesforce Transit Center" line="F" type="bus" vClass="bus" completeness="0.01" missingBefore="13" missingAfter="54">
+        <route edges="21456366#0 21456366#1 21456366#2 749905614#0 195433863#1 195433863#2 195433863#3 679682614 279321232"/>
+        <busStop id="283057547" name="Bancroft Way &amp; Telegraph Avenue"/>
+    </ptLine>
+    <ptLine id="2718360" name="AC Transit F: Salesforce Transit Center =&gt; U.C. Campus" line="F" type="bus" vClass="bus" completeness="0.01" missingBefore="65" missingAfter="2">
+        <route edges="21456366#0 21456366#1 21456366#2 749905614#0 195433863#1 195433863#2 195433863#3 679682614 279321232"/>
+        <busStop id="283057547" name="Bancroft Way &amp; Telegraph Avenue"/>
+    </ptLine>
+    <ptLine id="8546742" name="AC Transit 36: West Oakland BART =&gt; U.C. Campus" line="36" type="bus" vClass="bus" completeness="0.01" missingBefore="90" missingAfter="7">
+        <route edges="196779226#1 196779226#2 196779226#3 196779226#4 196779226#5 196779226#8"/>
+        <busStop id="6561839360" name="Durant Avenue &amp; Dana Street"/>
+    </ptLine>
+    <ptLine id="8759933" name="AC Transit 79: El Cerrito Plaza BART =&gt; Rockridge BART" line="79" type="bus" vClass="bus" period="1800" completeness="0.01" missingBefore="55" missingAfter="35">
+        <route edges="196779226#1 196779226#2 196779226#3 196779226#4 196779226#5 196779226#8"/>
+        <busStop id="6561839360" name="Durant Avenue &amp; Dana Street"/>
+    </ptLine>
+    <ptLine id="9371293" name="AC Transit 79: Rockridge BART =&gt; El Cerrito Plaza BART" line="79" type="bus" vClass="bus" period="1800" completeness="0.01" missingBefore="29" missingAfter="54">
+        <route edges="21456366#0 21456366#1 21456366#2 749905614#0 195433863#1 195433863#2 195433863#3 679682614 279321232"/>
+        <busStop id="283057547" name="Bancroft Way &amp; Telegraph Avenue"/>
+    </ptLine>
+    <ptLine id="9465754" name="AC Transit 6: Downtown Oakland =&gt; Downtown Berkeley" line="6" type="bus" vClass="bus" completeness="0.02" missingBefore="53" missingAfter="7">
+        <route edges="1078778152#1 195433863#1 195433863#2 195433863#3 679682614 279321232"/>
+        <busStop id="6364416038" name="Bancroft Way &amp; Telegraph Avenue"/>
+    </ptLine>
+    <ptLine id="9470650" name="AC Transit 36: U.C. Campus =&gt; West Oakland BART" line="36" type="bus" vClass="bus" completeness="0.01" missingBefore="4" missingAfter="85">
+        <route edges="21456366#0 21456366#1 21456366#2 749905614#0 195433863#1 195433863#2 195433863#3 679682614 279321232"/>
+        <busStop id="283057547" name="Bancroft Way &amp; Telegraph Avenue"/>
+    </ptLine>
+    <ptLine id="9709370" name="Bear Transit P: Downtown Berkeley =&gt; Hearst Mining Circle =&gt; Downtown Berkeley" line="P" type="bus" vClass="bus" completeness="0.03" missingBefore="21" missingAfter="11">
+        <route edges="21456366#0 21456366#1 21456366#2 749905614#0 195433863#1 195433863#2 195433863#3 679682614 279321232"/>
+        <busStop id="6561948718" name="Bancroft Way &amp; Bowditch Street"/>
+    </ptLine>
+    <ptLine id="9712120" name="Bear Transit N: Downtown Berkeley BART =&gt; Hearst Mining Circle =&gt; Downtown Berkeley BART" line="N" type="bus" vClass="bus" completeness="0.02" missingBefore="31" missingAfter="11">
+        <route edges="21456366#0 21456366#1 21456366#2 749905614#0 195433863#1 195433863#2 195433863#3 679682614 279321232"/>
+        <busStop id="6561948718" name="Bancroft Way &amp; Bowditch Street"/>
+    </ptLine>
+</ptLines>

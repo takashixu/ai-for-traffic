@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-02-23 13:00:29.126826 by osmWebWizard.py v1_20_0+0002-343658e7c64
+<configuration>
+    <net-file value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-23-13-00-17\osm.net.xml.gz"/>
+    <additional-files value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-23-13-00-17\osm_stops.add.xml,C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-23-13-00-17\osm_pt.rou.xml"/>
+    <output-trip-file value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-23-13-00-17\osm.pedestrian.trips.xml"/>
+    <route-file value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-23-13-00-17\osm.pedestrian.rou.xml"/>
+    <persontrips value="True"/>
+    <persontrip.walk-opposite-factor value="0.8"/>
+    <prefix value="ped"/>
+    <trip-attributes value="modes=&quot;public&quot;"/>
+    <vehicle-class value="pedestrian"/>
+    <fringe-factor value="1"/>
+    <insertion-density value="10.0"/>
+    <duarouter-weights.tls-penalty value="20"/>
+</configuration>
+-->
+
+<!-- generated on 2025-02-23 13:00:29 by Eclipse SUMO duarouter Version 1.20.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-23-13-00-17\osm.net.xml.gz"/>
+        <additional-files value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-23-13-00-17\osm_stops.add.xml,C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-23-13-00-17\osm_pt.rou.xml"/>
+        <route-files value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-23-13-00-17\osm.pedestrian.trips.xml"/>
+    </input>
+
+    <output>
+        <output-file value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-23-13-00-17\osm.pedestrian.rou.xml"/>
+        <alternatives-output value="NUL"/>
+    </output>
+
+    <processing>
+        <weights.tls-penalty value="20"/>
+        <persontrip.walk-opposite-factor value="0.8"/>
+    </processing>
+
+    <time>
+        <begin value="0.0"/>
+        <end value="3600.0"/>
+    </time>
+
+    <report>
+        <no-warnings value="true"/>
+        <ignore-errors value="true"/>
+        <no-step-log value="true"/>
+    </report>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="ped_pedestrian" vClass="pedestrian"/>
+    <person id="ped0" type="ped_pedestrian" depart="0.00">
+        <walk edges="1305513183 -1305513183"/>
+    </person>
+    <person id="ped1" type="ped_pedestrian" depart="276.26">
+        <walk edges="1032757249#1 1032757249#0 1032757248 669491504 1032757241#0"/>
+    </person>
+    <person id="ped2" type="ped_pedestrian" depart="552.52">
+        <walk edges="417682507#0 417682507#1 417682515#0 417682515#1 279321236#1 669491501 669491504 1032757248 1032757240#2 196779226#2"/>
+    </person>
+    <person id="ped3" type="ped_pedestrian" depart="828.78">
+        <walk edges="417682515#3 1032757235#1 1032757235#2 1032757235#3"/>
+    </person>
+    <person id="ped4" type="ped_pedestrian" depart="1105.04">
+        <walk edges="1032757256#1 1032757253#1 1305513147#3 1032757235#1" busStop="6410508155"/> <!-- Bancroft Way & Telegraph Avenue -->
+        <walk edges="1032757241#0 1032757241#1 -1305513183"/>
+    </person>
+    <person id="ped5" type="ped_pedestrian" depart="1381.30">
+        <walk edges="1032757241#0 669491504 1032757248 1032757240#2 1078778156#1"/>
+    </person>
+    <person id="ped6" type="ped_pedestrian" depart="1657.56">
+        <walk edges="-1305513183 1032757241#1 669491504 1032757248 1032757240#2"/>
+    </person>
+    <person id="ped7" type="ped_pedestrian" depart="1933.82">
+        <walk edges="1305513183 1032757241#1 1032757241#0" busStop="6410508155"/> <!-- Bancroft Way & Telegraph Avenue -->
+        <walk edges="1032757235#2 1200740357"/>
+    </person>
+    <person id="ped8" type="ped_pedestrian" depart="2210.08">
+        <walk edges="1032757241#0" busStop="6410508155"/> <!-- Bancroft Way & Telegraph Avenue -->
+        <walk edges="1032757235#1 1305513147#3 1305513147#2 1305513147#1"/>
+    </person>
+    <person id="ped9" type="ped_pedestrian" depart="2486.34">
+        <walk edges="417682507#5 417682507#4 417682510 1200740357 1032757235#2" busStop="6410508155"/> <!-- Bancroft Way & Telegraph Avenue -->
+        <walk edges="1032757241#0 1032757241#1 -1305513182"/>
+    </person>
+    <person id="ped10" type="ped_pedestrian" depart="2762.60">
+        <walk edges="417682507#5 417682507#4 417682507#3 417682507#2 417682515#0 417682515#1 279321236#1"/>
+    </person>
+    <person id="ped11" type="ped_pedestrian" depart="3038.86">
+        <walk edges="1032757253#0 1032757256#1 1032757255 1078778153#0 1032757239"/>
+    </person>
+    <person id="ped12" type="ped_pedestrian" depart="3315.12">
+        <walk edges="431330572 1032757239 1078778153#0 1032757255 1032757256#1 1032757253#0"/>
+    </person>
+    <person id="ped13" type="ped_pedestrian" depart="3591.38">
+        <walk edges="1032757236#0"/>
+    </person>
+</routes>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-02-24 21:58:15.570861 by osmWebWizard.py v1_20_0+0002-343658e7c64
+<configuration>
+    <net-file value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-24-21-58-04\osm.net.xml.gz"/>
+    <output-trip-file value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-24-21-58-04\osm.passenger.trips.xml"/>
+    <route-file value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-24-21-58-04\osm.passenger.rou.xml"/>
+    <prefix value="veh"/>
+    <trip-attributes value="departLane=&quot;best&quot;"/>
+    <fringe-start-attributes value="departSpeed=&quot;max&quot;"/>
+    <vehicle-class value="passenger"/>
+    <lanes value="True"/>
+    <fringe-factor value="5"/>
+    <allow-fringe.min-length value="1000.0"/>
+    <via-edge-types value="highway.motorway,highway.motorway_link,highway.trunk_link,highway.primary_link,highway.secondary_link,highway.tertiary_link"/>
+    <min-distance value="300.0"/>
+    <min-distance.fringe value="10.0"/>
+    <remove-loops value="True"/>
+    <validate value="True"/>
+    <end value="10000.0"/>
+    <insertion-density value="12.0"/>
+</configuration>
+-->
+
+<!-- generated on 2025-02-24 21:58:15 by Eclipse SUMO duarouter Version 1.20.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-24-21-58-04\osm.net.xml.gz"/>
+        <route-files value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-24-21-58-04\osm.passenger.trips.xml"/>
+    </input>
+
+    <output>
+        <output-file value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-24-21-58-04\osm.passenger.trips.xml.tmp"/>
+        <alternatives-output value="NUL"/>
+        <write-trips value="true"/>
+    </output>
+
+    <processing>
+        <remove-loops value="true"/>
+    </processing>
+
+    <time>
+        <begin value="0.0"/>
+        <end value="10000.0"/>
+    </time>
+
+    <report>
+        <no-warnings value="true"/>
+        <ignore-errors value="true"/>
+        <no-step-log value="true"/>
+    </report>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="veh_passenger" vClass="passenger"/>
+    <trip id="veh3" type="veh_passenger" depart="481.71" departLane="best" departSpeed="max" from="6406085#0" to="196779226#8"/>
+    <trip id="veh5" type="veh_passenger" depart="802.85" departLane="best" departSpeed="max" from="6406085#0" to="196779226#8"/>
+    <trip id="veh7" type="veh_passenger" depart="1123.99" departLane="best" departSpeed="max" from="-1080852438#1" to="279321232"/>
+    <trip id="veh11" type="veh_passenger" depart="1766.27" departLane="best" from="-1080852438#0" to="279321232"/>
+    <trip id="veh13" type="veh_passenger" depart="2087.41" departLane="best" from="-1080852438#0" to="195433863#3"/>
+    <trip id="veh14" type="veh_passenger" depart="2247.98" departLane="best" from="-1080852438#0" to="279321232"/>
+    <trip id="veh15" type="veh_passenger" depart="2408.56" departLane="best" departSpeed="max" from="-1080852438#1" to="279321232"/>
+    <trip id="veh16" type="veh_passenger" depart="2569.13" departLane="best" from="-1080852438#0" to="279321232"/>
+    <trip id="veh20" type="veh_passenger" depart="3211.41" departLane="best" from="-1080852438#0" to="279321232"/>
+    <trip id="veh23" type="veh_passenger" depart="3693.12" departLane="best" from="-1080852438#0" to="279321232"/>
+    <trip id="veh24" type="veh_passenger" depart="3853.69" departLane="best" departSpeed="max" from="-1080852438#1" to="679682614"/>
+    <trip id="veh25" type="veh_passenger" depart="4014.26" departLane="best" from="196779226#2" to="196779226#8"/>
+    <trip id="veh27" type="veh_passenger" depart="4335.40" departLane="best" from="-1080852438#0" to="279321232"/>
+    <trip id="veh30" type="veh_passenger" depart="4817.11" departLane="best" from="-1080852438#0" to="279321232"/>
+    <trip id="veh32" type="veh_passenger" depart="5138.25" departLane="best" departSpeed="max" from="-1080852438#1" to="279321232"/>
+    <trip id="veh33" type="veh_passenger" depart="5298.82" departLane="best" departSpeed="max" from="6406085#0" to="196779226#8"/>
+    <trip id="veh36" type="veh_passenger" depart="5780.53" departLane="best" departSpeed="max" from="-1080852438#1" to="279321232"/>
+    <trip id="veh37" type="veh_passenger" depart="5941.10" departLane="best" from="-1080852438#0" to="279321232"/>
+    <trip id="veh41" type="veh_passenger" depart="6583.38" departLane="best" from="196779226#1" to="196779226#8"/>
+    <trip id="veh42" type="veh_passenger" depart="6743.95" departLane="best" from="-1080852438#0" to="279321232"/>
+    <trip id="veh43" type="veh_passenger" depart="6904.52" departLane="best" from="-1080852438#0" to="279321232"/>
+    <trip id="veh46" type="veh_passenger" depart="7386.24" departLane="best" from="196779226#2" to="196779226#8"/>
+    <trip id="veh52" type="veh_passenger" depart="8349.66" departLane="best" from="21456366#2" to="279321232"/>
+    <trip id="veh54" type="veh_passenger" depart="8670.80" departLane="best" departSpeed="max" from="-1080852438#1" to="679682614"/>
+    <trip id="veh55" type="veh_passenger" depart="8831.37" departLane="best" from="-1080852438#0" to="279321232"/>
+    <trip id="veh56" type="veh_passenger" depart="8991.94" departLane="best" departSpeed="max" from="6406085#0" to="196779226#8"/>
+</routes>

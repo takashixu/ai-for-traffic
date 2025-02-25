@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-02-24 21:58:15.918805 by osmWebWizard.py v1_20_0+0002-343658e7c64
+<configuration>
+    <net-file value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-24-21-58-04\osm.net.xml.gz"/>
+    <additional-files value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-24-21-58-04\osm_stops.add.xml,C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-24-21-58-04\osm_pt.rou.xml"/>
+    <output-trip-file value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-24-21-58-04\osm.pedestrian.trips.xml"/>
+    <route-file value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-24-21-58-04\osm.pedestrian.rou.xml"/>
+    <persontrips value="True"/>
+    <persontrip.walk-opposite-factor value="0.8"/>
+    <prefix value="ped"/>
+    <trip-attributes value="modes=&quot;public&quot;"/>
+    <vehicle-class value="pedestrian"/>
+    <fringe-factor value="1"/>
+    <end value="10000.0"/>
+    <insertion-density value="10.0"/>
+    <duarouter-weights.tls-penalty value="20"/>
+</configuration>
+-->
+
+<!-- generated on 2025-02-24 21:58:15 by Eclipse SUMO duarouter Version 1.20.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-24-21-58-04\osm.net.xml.gz"/>
+        <additional-files value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-24-21-58-04\osm_stops.add.xml,C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-24-21-58-04\osm_pt.rou.xml"/>
+        <route-files value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-24-21-58-04\osm.pedestrian.trips.xml"/>
+    </input>
+
+    <output>
+        <output-file value="C:\Users\Anson\OneDrive\002_UCB\04_ENGIN296\20241022\ai-for-traffic\2025-02-24-21-58-04\osm.pedestrian.rou.xml"/>
+        <alternatives-output value="NUL"/>
+    </output>
+
+    <processing>
+        <weights.tls-penalty value="20"/>
+        <persontrip.walk-opposite-factor value="0.8"/>
+    </processing>
+
+    <time>
+        <begin value="0.0"/>
+        <end value="10000.0"/>
+    </time>
+
+    <report>
+        <no-warnings value="true"/>
+        <ignore-errors value="true"/>
+        <no-step-log value="true"/>
+    </report>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="ped_pedestrian" vClass="pedestrian"/>
+    <person id="ped0" type="ped_pedestrian" depart="0.00">
+        <walk edges="196779226#3 428833983#1 669491504 1032757241#0" busStop="6410508155"/> <!-- Bancroft Way & Telegraph Avenue -->
+        <walk edges="1032757235#1 1305513147#3 1305513147#2 1305513147#1 1034706074#1 1034706074#0 -109191200#1"/>
+    </person>
+    <person id="ped1" type="ped_pedestrian" depart="96.55">
+        <walk edges="1032757253#0 1032757253#1 1305513147#3 1032757235#1 1032757235#2 1032757235#3 1032757235#4 1032757242#1 1032757244#1"/>
+    </person>
+    <person id="ped2" type="ped_pedestrian" depart="193.10">
+        <walk edges="314580834#1 314580834#0 -1305513195#1 1032757235#4 1032757235#3 1032757235#2 1032757235#1 1305513147#3 1305513147#2 1305513147#1 1034706074#1 1034706074#0 1080852434 1032757236#0 1032757236#1 1278116897#2 26174780"/>
+    </person>
+    <person id="ped3" type="ped_pedestrian" depart="289.65">
+        <walk edges="679682614 1032757235#4 1032757235#3 1032757235#2 1032757235#1 1305513147#3 1305513147#2 1305513147#1 1034706074#1 -766144281"/>
+    </person>
+    <person id="ped4" type="ped_pedestrian" depart="386.20">
+        <walk edges="1078778161#5 1078778161#6 1078778162 1032757241#2 -1305513182"/>
+    </person>
+    <person id="ped5" type="ped_pedestrian" depart="482.75">
+        <walk edges="1032757242#1 1032757235#4 1032757235#3 1032757235#2 1032757235#1 1305513147#3"/>
+    </person>
+    <person id="ped6" type="ped_pedestrian" depart="579.30">
+        <walk edges="-1305513182 1032757241#1 1032757241#0"/>
+    </person>
+    <person id="ped7" type="ped_pedestrian" depart="675.85">
+        <walk edges="196779226#5 257411611#0 1305513164 1305513168#1 1078778155#1 1305513167"/>
+    </person>
+    <person id="ped8" type="ped_pedestrian" depart="772.40">
+        <walk edges="1032757242#1 -1305513195#1 314580834#0 1305513192"/>
+    </person>
+    <person id="ped9" type="ped_pedestrian" depart="868.95">
+        <walk edges="417682515#0 1032757235#3 1032757235#2 1032757235#1 1305513147#3 1305513147#2 1037276015 1037276016 -109191198#1"/>
+    </person>
+    <person id="ped10" type="ped_pedestrian" depart="965.50">
+        <walk edges="417682515#0 1032757235#3 1032757235#2 1032757235#1 1305513147#3 1305513147#2 1305513147#1 1034706074#1 1034706074#0 1080852434 1032757236#0 1032757236#1 1278116897#2 26174780 312023655"/>
+    </person>
+    <person id="ped11" type="ped_pedestrian" depart="1062.05">
+        <walk edges="1078778152#1 1032757256#1 1032757255 1032757238#2 1032757238#1 1032757238#0"/>
+    </person>
+    <person id="ped12" type="ped_pedestrian" depart="1158.60">
+        <walk edges="908588773#0 196779226#2 196779226#3 428833983#1 669491504 1032757241#0" busStop="6410508155"/> <!-- Bancroft Way & Telegraph Avenue -->
+        <walk edges="1032757235#1 1305513147#3 1305513147#2 1037276015 1037276016"/>
+    </person>
+    <person id="ped13" type="ped_pedestrian" depart="1255.15">
+        <walk edges="1032757233"/>
+    </person>
+    <person id="ped14" type="ped_pedestrian" depart="1351.70">
+        <walk edges="428833983#1 669491504 669491501 279321236#1 417682515#1 1032757235#4 1305513195#1 34361944 1305513194"/>
+    </person>
+    <person id="ped15" type="ped_pedestrian" depart="1448.25">
+        <walk edges="417682515#0 1032757235#4 -1305513195#1 314580834#0"/>
+    </person>
+    <person id="ped16" type="ped_pedestrian" depart="1544.80">
+        <walk edges="1305513166#4 1305513166#3 908588770#1 908588771#0 908588774"/>
+    </person>
+    <person id="ped17" type="ped_pedestrian" depart="1641.35">
+        <walk edges="1078778158#1 1078778158#0 1032757241#2 1032757241#1 669491504 428833983#1 908588769#1 1305513166#1 1305513164 1305513168#1"/>
+    </person>
+    <person id="ped18" type="ped_pedestrian" depart="1737.90">
+        <walk edges="417682515#3 1032757235#1 1032757235#2 1032757235#3 1032757235#4 1032757242#1 314580833#2 1345306088"/>
+    </person>
+    <person id="ped19" type="ped_pedestrian" depart="1834.45">
+        <walk edges="431330572 1032757239 1078778153#0 1032757238#2 1032757238#1 -1305513184#0 1305513184#0"/>
+    </person>
+    <person id="ped20" type="ped_pedestrian" depart="1931.00">
+        <walk edges="314580832 314580833#1 314580833#2 1032757242#1 1032757235#4 1032757235#3 1032757235#2 1032757235#1 1305513147#3 1305513147#2 1305513147#1 1034706074#1 1034706074#0 1080852434 1032757236#0 1032757237#1 1032757238#1 -1305513184#1"/>
+    </person>
+    <person id="ped21" type="ped_pedestrian" depart="2027.55">
+        <walk edges="1032757248#0 1032757248#1 1032757240#1 1032757254"/>
+    </person>
+    <person id="ped22" type="ped_pedestrian" depart="2124.10">
+        <walk edges="-570334342 1080852439 1032757238#0 1032757238#1 1032757238#2 1078778153#0 1032757249#1 1032757249#0 1032757248#1 1032757248#0"/>
+    </person>
+    <person id="ped23" type="ped_pedestrian" depart="2220.65">
+        <walk edges="1032757235#1 1305513147#3 1032757253#1 1032757253#0"/>
+    </person>
+    <person id="ped24" type="ped_pedestrian" depart="2317.20">
+        <walk edges="196779226#2 908588770#0 1305513166#2 1305513166#1 1305513164 1078778156#1"/>
+    </person>
+    <person id="ped25" type="ped_pedestrian" depart="2413.75">
+        <walk edges="1078778158#0 1032757241#2"/>
+    </person>
+    <person id="ped26" type="ped_pedestrian" depart="2510.30">
+        <walk edges="1032757252#1 1032757253#1 1305513147#3 1032757235#1" busStop="6410508155"/> <!-- Bancroft Way & Telegraph Avenue -->
+        <walk edges="1032757241#0 669491504 428833983#1 908588769#1 1305513166#2 908588770#1"/>
+    </person>
+    <person id="ped27" type="ped_pedestrian" depart="2606.85">
+        <walk edges="196779226#4 428833983#1 669491504 669491501 279321236#1 417682515#1 1032757235#4 1305513195#1"/>
+    </person>
+    <person id="ped28" type="ped_pedestrian" depart="2703.40">
+        <walk edges="1032757239 1078778153#0 1032757255 1032757256#1 1032757253#1 1305513147#3 1032757235#1 1032757235#2 1032757235#3 1032757235#4 -1305513195#1 314580834#0"/>
+    </person>
+    <person id="ped29" type="ped_pedestrian" depart="2799.95">
+        <walk edges="1032757238#2 1032757237#1 1032757236#0 1080852434 1034706074#0 1034706074#1 1305513147#1 1305513147#2 1305513147#3 1032757235#1 1032757235#2 1032757235#3 1032757235#4 1032757242#1 1032757244#1 1078778158#1"/>
+    </person>
+    <person id="ped30" type="ped_pedestrian" depart="2896.50">
+        <walk edges="912619010#1 1032757238#0 1032757238#1 1032757238#2 1078778153#0 1078778153#1 1305513168#1 1305513164 1305513166#1 1305513166#2 908588770#0 196779226#3"/>
+    </person>
+    <person id="ped31" type="ped_pedestrian" depart="2993.05">
+        <walk edges="1305513168#1 1305513164 1305513166#1 908588769#1 428833983#1 669491504 669491501 279321236#1 279321236#0"/>
+    </person>
+    <person id="ped32" type="ped_pedestrian" depart="3089.60">
+        <walk edges="417682515#5 417682507#3"/>
+    </person>
+    <person id="ped33" type="ped_pedestrian" depart="3186.15">
+        <walk edges="1032757248#0 1078778162 1032757241#2 -1305513182"/>
+    </person>
+    <person id="ped34" type="ped_pedestrian" depart="3282.70">
+        <walk edges="1034706074#0 1034706074#1 1032757252#1"/>
+    </person>
+    <person id="ped35" type="ped_pedestrian" depart="3379.25">
+        <walk edges="1032757241#2 1032757241#1 669491504 428833983#1 908588769#1 1305513166#2 908588770#1 908588771#0"/>
+    </person>
+    <person id="ped36" type="ped_pedestrian" depart="3475.80">
+        <walk edges="570334342 1080852439 912619010#1" busStop="6561948718"/> <!-- Bancroft Way & Bowditch Street -->
+        <walk edges="912619010#0 1278116897#1 1278116897#2 1032757236#1 1032757236#0 1080852434 1034706074#0"/>
+    </person>
+    <person id="ped37" type="ped_pedestrian" depart="3572.35">
+        <walk edges="196779226#5 196779226#4 428833983#1 1032757248#0 1078778161#0"/>
+    </person>
+    <person id="ped38" type="ped_pedestrian" depart="3668.90">
+        <walk edges="908588768#1 908588769#0 908588769#1 428833983#1 669491504 1032757241#0" busStop="6410508155"/> <!-- Bancroft Way & Telegraph Avenue -->
+        <walk edges="1032757235#1 1305513147#3 1305513147#2 1305513147#1 1034706074#1 766144281 109191200#1"/>
+    </person>
+    <person id="ped39" type="ped_pedestrian" depart="3765.45">
+        <walk edges="1032757252#0 1032757253#0 1032757240#0 1032757240#1 1032757249#0"/>
+    </person>
+    <person id="ped40" type="ped_pedestrian" depart="3862.00">
+        <walk edges="1305513182 1032757241#1 1032757241#0" busStop="6410508155"/> <!-- Bancroft Way & Telegraph Avenue -->
+        <walk edges="1032757235#1 1305513147#3 1032757253#1 1032757252#0"/>
+    </person>
+    <person id="ped41" type="ped_pedestrian" depart="3958.55">
+        <walk edges="1305513192 314580834#0 -1305513195#1 1032757235#4 1032757235#3 1032757235#2 1032757235#1 1305513147#3 1305513147#2 1305513147#1 1034706074#1 766144281"/>
+    </person>
+    <person id="ped42" type="ped_pedestrian" depart="4055.10">
+        <walk edges="1078778161#1 1078778161#2 1078778161#4 1078778161#5 1078778161#6 1078778162 1078778158#0 1078778158#1 1032757244#1 1032757242#1"/>
+    </person>
+    <person id="ped43" type="ped_pedestrian" depart="4151.65">
+        <walk edges="912619011 1032757238#0 1032757238#1 1032757238#2 1078778153#0 1078778153#1 1305513168#1 1305513164"/>
+    </person>
+    <person id="ped44" type="ped_pedestrian" depart="4248.20">
+        <walk edges="1032757233 1032757236#1 1032757237#1 1032757238#1 -1305513184#1"/>
+    </person>
+    <person id="ped45" type="ped_pedestrian" depart="4344.75">
+        <walk edges="1032757235#2" busStop="6410508155"/> <!-- Bancroft Way & Telegraph Avenue -->
+        <walk edges="1032757241#0 1032757241#1 1032757241#2 1078778162 1078778161#6 196779226#1"/>
+    </person>
+    <person id="ped46" type="ped_pedestrian" depart="4441.30">
+        <walk edges="417682507#5 417682510 1200740357 1032757235#2" busStop="6410508155"/> <!-- Bancroft Way & Telegraph Avenue -->
+        <walk edges="1032757241#0 1032757241#1 1032757241#2 1078778162 1078778161#6"/>
+    </person>
+    <person id="ped47" type="ped_pedestrian" depart="4537.85">
+        <walk edges="-1305513195#1 1032757242#1 1032757244#1 1078778158#1"/>
+    </person>
+    <person id="ped48" type="ped_pedestrian" depart="4634.40">
+        <walk edges="912619011 1032757238#0 1032757238#1 1032757238#2 1078778153#0 1078778153#1 1305513168#1 1305513164 1305513166#1 1305513166#2 1305513166#3"/>
+    </person>
+    <person id="ped49" type="ped_pedestrian" depart="4730.95">
+        <walk edges="908588774 908588771#0 908588770#1 1305513166#2 1305513166#1 1305513164 1305513168#1 1078778153#1 1032757239 431330572"/>
+    </person>
+    <person id="ped50" type="ped_pedestrian" depart="4827.50">
+        <walk edges="-109191198#1 1037276016 1037276015 1305513147#2 1305513147#3 1032757235#1 1032757235#2 1032757235#3 1032757235#4 1032757242#1 314580833#2 314580833#1"/>
+    </person>
+    <person id="ped51" type="ped_pedestrian" depart="4924.05">
+        <walk edges="26174780 1278116897#2 1032757236#1 1032757236#0 1080852434 1034706074#0 1034706074#1 1305513147#1 1305513147#2 1305513147#3 1032757235#1" busStop="6410508155"/> <!-- Bancroft Way & Telegraph Avenue -->
+        <walk edges="1032757241#0 669491504 428833983#1 908588769#1 1305513166#2 1305513166#3 1305513166#4"/>
+    </person>
+    <person id="ped52" type="ped_pedestrian" depart="5020.60">
+        <walk edges="1032757252#1 1032757253#1 1305513147#3 1032757235#1" busStop="6410508155"/> <!-- Bancroft Way & Telegraph Avenue -->
+        <walk edges="1032757241#0 669491504 428833983#1 196779226#3"/>
+    </person>
+    <person id="ped53" type="ped_pedestrian" depart="5117.15">
+        <walk edges="1032757235#3 279321236#0 279321236#1 669491501 1032757241#1 1032757241#2 1078778162"/>
+    </person>
+    <person id="ped54" type="ped_pedestrian" depart="5213.70">
+        <walk edges="1080852439 1032757238#0 1032757238#1 1032757238#2 1078778153#0 1078778153#1 1305513168#1 1305513164 1305513166#1 1305513166#2 908588770#1 908588771#1"/>
+    </person>
+    <person id="ped55" type="ped_pedestrian" depart="5310.25">
+        <walk edges="570334342 1080852439 1032757238#0 1032757238#1 1032757238#2 1032757251 1032757252#0"/>
+    </person>
+    <person id="ped56" type="ped_pedestrian" depart="5406.80">
+        <walk edges="1305513147#3 1032757253#1 1032757253#0 1032757240#0"/>
+    </person>
+    <person id="ped57" type="ped_pedestrian" depart="5503.35">
+        <walk edges="908588768#1 908588769#0 1305513166#1 1305513164 1305513168#1 1078778153#1 1078778153#0 1032757238#2 1032757238#1 1032757238#0 1080852439 570334342"/>
+    </person>
+    <person id="ped58" type="ped_pedestrian" depart="5599.90">
+        <walk edges="1032757255 1078778153#0 1078778153#1 1305513168#1 1305513164 1305513166#1 1305513166#2 908588770#0 196779226#3"/>
+    </person>
+    <person id="ped59" type="ped_pedestrian" depart="5696.45">
+        <walk edges="1305513195#1 1032757235#4 1032757235#3 1032757235#2 1032757235#1 1305513147#3 1305513147#2 1305513147#1 1034706074#1 1034706074#0 1080852434 1032757236#0 1032757236#1 1278116897#2 1278116897#1 912619010#0" busStop="6561948718"/> <!-- Bancroft Way & Bowditch Street -->
+        <walk edges="912619010#1 1032757238#0"/>
+    </person>
+    <person id="ped60" type="ped_pedestrian" depart="5793.00">
+        <walk edges="417682507#1 417682503 417682507#5 417682510 417682515#3 1305513147#3 1032757253#1 1032757256#1 1032757255 1078778153#0 1078778153#1 1078778155#1 1305513167"/>
+    </person>
+    <person id="ped61" type="ped_pedestrian" depart="5889.55">
+        <walk edges="417682507#3 417682515#0 417682515#1 279321236#1 669491501 669491504 428833983#1 908588769#1 1305513166#2 1305513166#3"/>
+    </person>
+    <person id="ped62" type="ped_pedestrian" depart="5986.10">
+        <walk edges="-1080852432 1080852439 912619010#1" busStop="6561948718"/> <!-- Bancroft Way & Bowditch Street -->
+        <walk edges="912619010#0 1278116897#1 1278116897#2 1032757236#1 1032757236#0 1080852434 1034706074#0 1034706074#1"/>
+    </person>
+    <person id="ped63" type="ped_pedestrian" depart="6082.65">
+        <walk edges="-109191200#0 -766144281 1034706074#1 1305513147#1 1305513147#2 1305513147#3 1032757235#1" busStop="6410508155"/> <!-- Bancroft Way & Telegraph Avenue -->
+        <walk edges="1032757241#0 669491504 428833983#1 908588769#1 1305513166#2 908588770#0"/>
+    </person>
+    <person id="ped64" type="ped_pedestrian" depart="6179.20">
+        <walk edges="669491501" busStop="6410508155"/> <!-- Bancroft Way & Telegraph Avenue -->
+        <walk edges="1032757235#2 1200740357 417682515#4"/>
+    </person>
+    <person id="ped65" type="ped_pedestrian" depart="6275.75">
+        <walk edges="1032757256#1 1032757253#1 1305513147#3 1032757235#1 1032757235#2 1032757235#3 1032757235#4 1305513195#1 34361944 -1305513194"/>
+    </person>
+    <person id="ped66" type="ped_pedestrian" depart="6372.30">
+        <walk edges="669491501 669491504 428833983#1 908588769#1 1305513166#2 908588770#1 908588771#0"/>
+    </person>
+    <person id="ped67" type="ped_pedestrian" depart="6468.85">
+        <walk edges="-766144281 109191200#1 1080852434 1032757236#0 1032757236#1 1278116897#2"/>
+    </person>
+    <person id="ped68" type="ped_pedestrian" depart="6565.40">
+        <walk edges="-34361944 1305513194 417682507#1"/>
+    </person>
+    <person id="ped69" type="ped_pedestrian" depart="6661.95">
+        <walk edges="417682507#1 417682503 417682507#5 417682510 417682515#3 1305513147#3 1305513147#2 1305513147#1 1034706074#1 1034706074#0 1080852434 1032757236#0"/>
+    </person>
+    <person id="ped70" type="ped_pedestrian" depart="6758.50">
+        <walk edges="1278116897#1 912619010#0" busStop="6561948718"/> <!-- Bancroft Way & Bowditch Street -->
+        <walk edges="912619010#1 1032757238#0 1032757238#1 1032757238#2 1078778153#0 1078778153#1 1078778155#1 1305513168#0"/>
+    </person>
+    <person id="ped71" type="ped_pedestrian" depart="6855.05">
+        <walk edges="1032757252#0 1032757251 1032757238#2 1032757238#1 1032757238#0 1080852439 570334342"/>
+    </person>
+    <person id="ped72" type="ped_pedestrian" depart="6951.60">
+        <walk edges="1078778161#6 1078778162 1032757241#2"/>
+    </person>
+    <person id="ped73" type="ped_pedestrian" depart="7048.15">
+        <walk edges="1305513167 1078778155#1 1078778153#1 1078778153#0 1032757255 1032757256#1 1032757253#1 1305513147#3 1032757235#1 1032757235#2 1032757235#3 1032757235#4 -1305513195#1 314580834#0"/>
+    </person>
+    <person id="ped74" type="ped_pedestrian" depart="7144.70">
+        <walk edges="1032757241#0" busStop="6410508155"/> <!-- Bancroft Way & Telegraph Avenue -->
+        <walk edges="1032757235#1 1305513147#3 1305513147#2 1305513147#1 1034706074#1 1034706074#0"/>
+    </person>
+    <person id="ped75" type="ped_pedestrian" depart="7241.25">
+        <walk edges="912619011 1032757238#0 1032757238#1 1032757238#2 1078778153#0 1078778153#1 1305513168#1 1305513164 257411611#0 196779226#5"/>
+    </person>
+    <person id="ped76" type="ped_pedestrian" depart="7337.80">
+        <walk edges="1080852432 1080852439 1032757238#0 1032757238#1 1032757238#2 1078778153#0 1078778153#1 1305513168#1 1305513164 1305513166#1"/>
+    </person>
+    <person id="ped77" type="ped_pedestrian" depart="7434.35">
+        <walk edges="1032757235#4 1032757242#1 1032757244#1"/>
+    </person>
+    <person id="ped78" type="ped_pedestrian" depart="7530.90">
+        <walk edges="1078778152#1 1032757253#1 1305513147#3 1032757235#1 1032757235#2 1032757235#3 1032757235#4 -1305513195#1 314580834#0 1305513192"/>
+    </person>
+    <person id="ped79" type="ped_pedestrian" depart="7627.45">
+        <walk edges="1032757248#0 1078778162 1078778158#0 1078778158#1 1032757244#1 1032757242#1"/>
+    </person>
+    <person id="ped80" type="ped_pedestrian" depart="7724.00">
+        <walk edges="-34361944 -1305513195#1 1032757242#1 1032757244#1 1078778158#1 1078778158#0 1078778162 1078778161#6 196779226#1 196779226#2"/>
+    </person>
+    <person id="ped81" type="ped_pedestrian" depart="7820.55">
+        <walk edges="1032757248#0 428833983#1 908588769#1 908588769#0 908588768#0"/>
+    </person>
+    <person id="ped82" type="ped_pedestrian" depart="7917.10">
+        <walk edges="431330572 1032757239 1078778153#0 1032757255 1032757256#1 1032757253#1 1305513147#3 1032757235#1 1032757235#2 1032757235#3 1032757235#4 1305513195#1 34361944 -34361944"/>
+    </person>
+    <person id="ped83" type="ped_pedestrian" depart="8013.65">
+        <walk edges="1032757248#1 428833983#1 908588769#1 1305513166#1 257411611#1"/>
+    </person>
+    <person id="ped84" type="ped_pedestrian" depart="8110.20">
+        <walk edges="1032757241#2 1032757241#1 1032757241#0" busStop="6410508155"/> <!-- Bancroft Way & Telegraph Avenue -->
+        <walk edges="1032757235#1 1305513147#3 1305513147#2 1305513147#1 1034706074#1 1034706074#0 1080852434 1032757236#0 1032757236#1"/>
+    </person>
+    <person id="ped85" type="ped_pedestrian" depart="8206.75">
+        <walk edges="908588770#1 1305513166#2 908588769#1 428833983#1 669491504 1032757241#1 1305513183"/>
+    </person>
+    <person id="ped86" type="ped_pedestrian" depart="8303.30">
+        <walk edges="1278116895 1032757240#0 1032757253#0 1032757253#1 1305513147#3 417682515#3 417682510 417682507#4"/>
+    </person>
+    <person id="ped87" type="ped_pedestrian" depart="8399.85">
+        <walk edges="417682515#0 417682515#1 279321236#1 669491501 669491504 1032757248#1 1032757240#2"/>
+    </person>
+    <person id="ped88" type="ped_pedestrian" depart="8496.40">
+        <walk edges="1032757233 1032757236#1 1032757236#0 1080852434 1034706074#0 1034706074#1 1305513147#1 1305513147#2 1305513147#3 1032757235#1" busStop="6410508155"/> <!-- Bancroft Way & Telegraph Avenue -->
+        <walk edges="1032757241#0 1032757241#1 1032757241#2 1078778162"/>
+    </person>
+    <person id="ped89" type="ped_pedestrian" depart="8592.95">
+        <walk edges="1078778161#6 1078778162 1032757241#2 1032757241#1 1032757241#0" busStop="6410508155"/> <!-- Bancroft Way & Telegraph Avenue -->
+        <walk edges="1032757235#2 1200740357"/>
+    </person>
+    <person id="ped90" type="ped_pedestrian" depart="8689.50">
+        <walk edges="314580834#0 -1305513195#1 1032757235#4 417682515#1 279321236#1 669491501 669491504 428833983#1 908588769#1 1305513166#1 257411611#1"/>
+    </person>
+    <person id="ped91" type="ped_pedestrian" depart="8786.05">
+        <walk edges="912619010#0 1278116897#1 1278116897#2 1032757236#1 1032757236#0 1080852434 1034706074#0 1034706074#1 1305513147#1 1305513147#2 1305513147#3 1032757235#1"/>
+    </person>
+    <person id="ped92" type="ped_pedestrian" depart="8882.60">
+        <walk edges="1078778161#2 1078778161#4 1305513166#4 1305513166#3 1305513166#2 908588769#1 428833983#1 1032757248#1 1032757249#0 1078778152#1"/>
+    </person>
+    <person id="ped93" type="ped_pedestrian" depart="8979.15">
+        <walk edges="431330572 1032757239 1032757249#1"/>
+    </person>
+    <person id="ped94" type="ped_pedestrian" depart="9075.70">
+        <walk edges="1032757240#2 1032757249#0 1032757249#1 1078778153#0 1032757238#2 1032757238#1 1032757238#0 1080852439"/>
+    </person>
+    <person id="ped95" type="ped_pedestrian" depart="9172.25">
+        <walk edges="1078778161#5 1305513166#4 1305513166#3 1305513166#2 908588769#1 428833983#1 1032757248#1 1032757240#1 1032757240#0 1032757253#0"/>
+    </person>
+    <person id="ped96" type="ped_pedestrian" depart="9268.80">
+        <walk edges="1032757249#1 1032757249#0 1032757248#1 428833983#1 908588769#1"/>
+    </person>
+    <person id="ped97" type="ped_pedestrian" depart="9365.35">
+        <walk edges="1080852434 1034706074#0 1034706074#1 1032757252#1 1032757256#1 1032757255 1078778153#0 1032757239 431330572"/>
+    </person>
+    <person id="ped98" type="ped_pedestrian" depart="9461.89">
+        <walk edges="1305513168#0 1078778155#1 1078778153#1 1078778153#0 1032757238#2 1032757238#1 -1305513184#1"/>
+    </person>
+    <person id="ped99" type="ped_pedestrian" depart="9558.44">
+        <walk edges="912619011" busStop="6561948718"/> <!-- Bancroft Way & Bowditch Street -->
+        <walk edges="912619010#0 1278116897#1 1278116897#2 1032757236#1 1032757236#0 1080852434 1034706074#0 1034706074#1 1305513147#1 1305513147#2 1305513147#3 417682515#3 417682515#4"/>
+    </person>
+    <person id="ped100" type="ped_pedestrian" depart="9654.99">
+        <walk edges="908588774 908588771#0 908588770#1 1305513166#2 908588769#1"/>
+    </person>
+    <person id="ped101" type="ped_pedestrian" depart="9751.54">
+        <walk edges="428833983#1 1032757248#1 1032757249#0 1032757249#1 1078778153#0 1032757238#2"/>
+    </person>
+    <person id="ped102" type="ped_pedestrian" depart="9848.09">
+        <walk edges="1278116897#2 1032757236#1 1032757236#0 1080852434 1034706074#0 1034706074#1 1305513147#1 1305513147#2 1305513147#3 1032757235#1" busStop="6410508155"/> <!-- Bancroft Way & Telegraph Avenue -->
+        <walk edges="1032757241#0 1032757241#1 1032757241#2"/>
+    </person>
+    <person id="ped103" type="ped_pedestrian" depart="9944.64">
+        <walk edges="1078778161#1 1078778161#2 1078778161#4 1078778161#5 1078778161#6 1078778162 1078778158#0 1078778158#1 1032757244#1 1032757242#1 -1305513195#1"/>
+    </person>
+</routes>
