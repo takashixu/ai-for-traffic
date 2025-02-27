@@ -1,5 +1,6 @@
 """Q-learning Agent class."""
 from sumo_rl.exploration.epsilon_greedy import EpsilonGreedy
+import csv
 
 
 class QLAgent:
@@ -16,6 +17,14 @@ class QLAgent:
         self.q_table = {self.state: [0 for _ in range(action_space.n)]}
         self.exploration = exploration_strategy
         self.acc_reward = 0
+
+    def export_q_table(self, filename, timestep):
+        """Export Q-table to a CSV file with a column for the timestep."""
+        with open(filename, mode='a', newline='') as file:
+            writer = csv.writer(file)
+            for state, actions in self.q_table.items():
+                temp_state = [int(item) for item in state]
+                writer.writerow([timestep, temp_state[0:2], temp_state[2:4], temp_state[4:], actions[0], actions[1]])
 
     def act(self):
         """Choose action based on Q-table."""

@@ -489,12 +489,20 @@ class SumoEnvironment(gym.Env):
     # Below functions are for discrete state space
 
     def encode(self, state, ts_id):
-        """Encode the state of the traffic signal into a hashable object."""
+        """Encode the state of the traffic signal into a hashable object based on the observation function"""
         phase = int(np.where(state[: self.traffic_signals[ts_id].num_green_phases] == 1)[0])
         min_green = state[self.traffic_signals[ts_id].num_green_phases]
-        density_queue = [self._discretize_density(d) for d in state[self.traffic_signals[ts_id].num_green_phases + 1 :]]
-        # tuples are hashable and can be used as key in python dictionary
-        return tuple([phase, min_green] + density_queue)
+        observation_fn = self.observation_class(self.traffic_signals[ts_id])
+        observation = observation_fn()
+        return tuple(observation)
+
+    # def encode(self, state, ts_id):
+    #     """Encode the state of the traffic signal into a hashable object."""
+    #     phase = int(np.where(state[: self.traffic_signals[ts_id].num_green_phases] == 1)[0])
+    #     min_green = state[self.traffic_signals[ts_id].num_green_phases]
+    #     density_queue = [self._discretize_density(d) for d in state[self.traffic_signals[ts_id].num_green_phases + 1 :]]
+    #     # tuples are hashable and can be used as key in python dictionary
+    #     return tuple([phase, min_green] + density_queue)
 
     def _discretize_density(self, density):
         return min(int(density * 10), 9)

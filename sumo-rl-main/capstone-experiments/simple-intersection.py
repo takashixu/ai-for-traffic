@@ -5,6 +5,17 @@ import sys
 import pandas as pd
 from pathlib import Path
 import sumolib
+import csv
+
+# Run this command for plotting
+# python3 sumo-rl-main/outputs/plot.py -f sumo-rl-main/capstone-experiments/outputs/discrete-queue-test-run_conn0_ep1.csv -yaxis [arg]
+
+def initialize_csv(filename):
+    with open(filename, mode='w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(['Timestep', 'Signal State', 'Queue 0 Length', 'Queue 1 Length', 'Action 0 Reward', 'Action 1 Reward'])
+initialize_csv('q_table.csv')
+
 
 local_sumo_rl_path = Path(__file__).resolve().parent.parent
 if not local_sumo_rl_path.exists():
@@ -34,14 +45,23 @@ if __name__ == "__main__":
     gamma = 0.99
     decay = 1
     runs = 1
-    episodes = 4
+    episodes = 1
+
+    '''
+    Reward fns:
+        "diff-waiting-time"
+        "average-speed"
+        "queue"
+        "pressure"
+    '''
 
     env = SumoEnvironment(
         net_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"nets"/"single-intersection"/"single-intersection.net.xml",
         route_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"nets"/"single-intersection"/"single-intersection.rou.xml",
-        use_gui=False,
-        num_seconds=80000,
-        # observation_class=DiscreteObservationFunction,
+        use_gui=True,
+        num_seconds=40000,
+        reward_fn="link",
+        observation_class=DiscreteObservationFunction,
         min_green=5,
         delta_time=5,
     )
@@ -76,6 +96,9 @@ if __name__ == "__main__":
                 for agent_id in s.keys():
                     ql_agents[agent_id].learn(next_state=env.encode(s[agent_id], agent_id), reward=r[agent_id])
 
-            env.save_csv(str(Path.cwd()/"sumo-rl-main"/"capstone-experiments"/"outputs"/"continuous-test-run"), episode)
+                for ts, agent in ql_agents.items():
+                    agent.export_q_table('q_table.csv', env.sim_step)
+                
+            env.save_csv(str(Path.cwd()/"sumo-rl-main"/"capstone-experiments"/"outputs"/"discrete-queue-test-run"), episode)
 
     env.close()

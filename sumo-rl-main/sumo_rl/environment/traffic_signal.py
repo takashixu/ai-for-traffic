@@ -199,6 +199,13 @@ class TrafficSignal:
         reward = self.last_measure - ts_wait
         self.last_measure = ts_wait
         return reward
+    
+    # LastStepHaltingNumber vs LastStepVehicleNumber
+    def _link_size_reward(self):
+        link_sizes = [self.sumo.lane.getLastStepHaltingNumber(lane) for lane in self.lanes]
+        current_phase = self.green_phase
+        reward = link_sizes[0] + link_sizes[1] if current_phase == 0 else link_sizes[2] + link_sizes[3]
+        return reward
 
     def _observation_fn_default(self):
         phase_id = [1 if self.green_phase == i else 0 for i in range(self.num_green_phases)]  # one-hot encoding
@@ -305,6 +312,38 @@ class TrafficSignal:
             else:
                 categories.append(2)
         return categories
+    
+    def categorize_queue_length(self) -> List[str]:
+        """
+        Categorizes the queue length for each incoming lane into three levels:
+        low, medium, or high.
+        
+        Returns:
+            List[str]: A list of strings indicating the queue length category for each lane.
+        """
+        queues = [self.sumo.lane.getLastStepHaltingNumber(lane) for lane in self.lanes]
+        categories = []
+        for q in queues:
+            if q < 5:
+                categories.append(0)
+            elif q < 10:
+                categories.append(1)
+            else:
+                categories.append(2)
+        return categories
+    
+    def get_queue_lengths(self) -> List[int]:
+        """
+        Returns the queue length for each incoming lane.
+        
+        Returns:
+            List[int]: A list of integers indicating the queue length for each lane.
+        """
+        return [self.sumo.lane.getLastStepHaltingNumber(lane) for lane in self.lanes]
+
+    def get_num_pedestrians(self) -> int:
+        """Returns the number of pedestrians in the intersection."""
+        return sum(self.sumo.person.getWaitingTime(ped) > 0 for ped in self.sumo.person.getIDList())
 
     def _get_veh_list(self):
         veh_list = []
@@ -329,4 +368,5 @@ class TrafficSignal:
         "average-speed": _average_speed_reward,
         "queue": _queue_reward,
         "pressure": _pressure_reward,
+        "link": _link_size_reward,
     }
