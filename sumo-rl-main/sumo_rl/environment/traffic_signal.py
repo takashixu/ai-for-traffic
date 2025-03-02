@@ -206,6 +206,8 @@ class TrafficSignal:
         current_phase = self.green_phase
         reward = link_sizes[0] + link_sizes[1] if current_phase == 0 else link_sizes[2] + link_sizes[3]
         return reward
+    
+    # TODO: 
 
     def _observation_fn_default(self):
         phase_id = [1 if self.green_phase == i else 0 for i in range(self.num_green_phases)]  # one-hot encoding
@@ -324,9 +326,9 @@ class TrafficSignal:
         queues = [self.sumo.lane.getLastStepHaltingNumber(lane) for lane in self.lanes]
         categories = []
         for q in queues:
-            if q < 5:
+            if q < 3:
                 categories.append(0)
-            elif q < 10:
+            elif q < 7:
                 categories.append(1)
             else:
                 categories.append(2)
@@ -340,6 +342,16 @@ class TrafficSignal:
             List[int]: A list of integers indicating the queue length for each lane.
         """
         return [self.sumo.lane.getLastStepHaltingNumber(lane) for lane in self.lanes]
+    
+    def get_larger_queue(self) -> List[int]:
+        """
+        Returns the queue with the larger size
+        """
+        queue_lengths = self.get_queue_lengths()
+        if queue_lengths[0] + queue_lengths[1] > queue_lengths[2] + queue_lengths[3]:
+            return [0]
+        else:
+            return [1]
 
     def get_num_pedestrians(self) -> int:
         """Returns the number of pedestrians in the intersection."""

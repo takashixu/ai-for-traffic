@@ -4,16 +4,17 @@ import sys
 
 import pandas as pd
 from pathlib import Path
+import matplotlib.pyplot as plt
 import sumolib
 import csv
 
 # Run this command for plotting
-# python3 sumo-rl-main/outputs/plot.py -f sumo-rl-main/capstone-experiments/outputs/discrete-queue-test-run_conn0_ep1.csv -yaxis [arg]
+# python3 sumo-rl-main/outputs/plot.py -f sumo-rl-main/capstone-experiments/outputs/discrete-queue-test-run2_conn0_ep1.csv -yaxis [arg]
 
 def initialize_csv(filename):
     with open(filename, mode='w', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(['Timestep', 'Signal State', 'Queue 0 Length', 'Queue 1 Length', 'Action 0 Reward', 'Action 1 Reward'])
+        writer.writerow(['time_step', 'state', 'action1_q', 'action2_q'])
 initialize_csv('q_table.csv')
 
 
@@ -41,8 +42,8 @@ from pathlib import Path
 print(Path.cwd())
 
 if __name__ == "__main__":
-    alpha = 0.1
-    gamma = 0.99
+    alpha = 0.5
+    gamma = 0.5
     decay = 1
     runs = 1
     episodes = 1
@@ -58,9 +59,9 @@ if __name__ == "__main__":
     env = SumoEnvironment(
         net_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"nets"/"single-intersection"/"single-intersection.net.xml",
         route_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"nets"/"single-intersection"/"single-intersection.rou.xml",
-        use_gui=True,
-        num_seconds=40000,
-        reward_fn="link",
+        use_gui=False,
+        num_seconds=100000,
+        reward_fn="queue",
         observation_class=DiscreteObservationFunction,
         min_green=5,
         delta_time=5,
@@ -99,6 +100,27 @@ if __name__ == "__main__":
                 for ts, agent in ql_agents.items():
                     agent.export_q_table('q_table.csv', env.sim_step)
                 
-            env.save_csv(str(Path.cwd()/"sumo-rl-main"/"capstone-experiments"/"outputs"/"discrete-queue-test-run"), episode)
+            env.save_csv(str(Path.cwd()/"sumo-rl-main"/"capstone-experiments"/"outputs"/"discrete-queue-test-run2"), episode)
 
     env.close()
+
+data = pd.read_csv('q_table.csv')
+states = data['state'].unique()
+actions = [col for col in data.columns if col.endswith('_q')]
+plt.figure(figsize=(12, 8))
+
+for state in states:
+    state_data = data[data['state'] == state]
+    
+    plt.figure(figsize=(10, 6))
+    plt.plot(state_data['time_step'], state_data['action1_q'], label='action 0')
+    plt.plot(state_data['time_step'], state_data['action2_q'], label='action 1')
+    
+    plt.xlabel('Time Step')
+    plt.ylabel('Q-Value')
+    plt.title(f'Q-Value Updates Over Time for State {state}')
+    plt.legend()
+    plt.grid(True)
+    
+    plt.savefig(f'q_values_state_{state}.png')
+    plt.show()

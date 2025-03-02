@@ -59,7 +59,7 @@ class DiscreteObservationFunction(ObservationFunction):
     def __call__(self) -> int:
         """Return the discrete observation."""
         phase_id = [1 if self.ts.green_phase == i else 0 for i in range(self.ts.num_green_phases)]
-        queue_sizes = self.ts.get_queue_lengths()
+        queue_sizes = self.ts.get_larger_queue()
         observation = np.array(phase_id + queue_sizes, dtype=np.int32)
         return observation
 
