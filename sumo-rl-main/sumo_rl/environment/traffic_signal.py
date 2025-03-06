@@ -341,7 +341,7 @@ class TrafficSignal:
         Returns:
             List[int]: A list of integers indicating the queue length for each lane.
         """
-        return [self.sumo.lane.getLastStepHaltingNumber(lane) for lane in self.lanes]
+        return [self.sumo.lane.getLastStepVehicleNumber(lane) for lane in self.lanes]
     
     def get_larger_queue(self) -> List[int]:
         """
