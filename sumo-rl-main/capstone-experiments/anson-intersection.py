@@ -83,7 +83,7 @@ def plot_df(df, color, xaxis, yaxis, ma=1, label=""):
 
 
 def plot():
-    files = ["sumo-rl-main/capstone-experiments/outputs/data_conn0_ep0.csv"]
+    files = [f"sumo-rl-main/capstone-experiments/outputs/data_a{alpha}_g{gamma}_conn0_ep0.csv"]
     legends = [""]
     title = "# of Stopped Vehicles per Time Step"
     yaxis = "system_total_stopped"
@@ -167,7 +167,7 @@ for run in range(1, runs + 1):
         for ts, agent in ql_agents.items():
             agent.export_q_table('q_table.csv', env.sim_step)
             
-        env.save_csv(str(Path.cwd()/"sumo-rl-main"/"capstone-experiments"/"outputs"/"data"), 0)
+        env.save_csv(str(Path.cwd()/"sumo-rl-main"/"capstone-experiments"/"outputs"/f"data_a{alpha}_g{gamma}"), 0)
 
 env.close()
 
