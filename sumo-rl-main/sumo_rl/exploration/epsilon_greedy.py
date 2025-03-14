@@ -14,6 +14,7 @@ class EpsilonGreedy:
 
     def choose(self, q_table, state, action_space):
         """Choose action based on epsilon greedy strategy."""
+        np.random.seed(123456789)
         if np.random.rand() < self.epsilon:
             action = int(action_space.sample())
         else:
