@@ -22,10 +22,10 @@ Reward fns:
 
 alpha = 0.5
 gamma = 0.5
-training_timesteps = 5000 # make sure training is less than total time steps
-total_timesteps = 10000
-gui = True
-save_output = True
+training_timesteps = 100000 # make sure training is less than total time steps
+total_timesteps = 110000
+gui = False
+save_output = False
 
 decay = 1
 runs = 1
@@ -92,7 +92,7 @@ def plot():
     sep = ","
     xlabel = "Time step (seconds)"
     ylabel = "Total # of Vehicles"
-    output = "plot" 
+    output = f"plot_a{alpha}_g{gamma}" 
 
     labels = cycle(legends) if legends is not None else cycle([str(i) for i in range(len(files))])
 
@@ -170,6 +170,15 @@ for run in range(1, runs + 1):
         env.save_csv(str(Path.cwd()/"sumo-rl-main"/"capstone-experiments"/"outputs"/f"data_a{alpha}_g{gamma}"), 0)
 
 env.close()
+
+data = pd.read_csv(f"sumo-rl-main/capstone-experiments/outputs/data_a{alpha}_g{gamma}_conn0_ep0.csv")
+
+filtered_data = data[(data['step'] >= training_timesteps) & (data['step'] <= total_timesteps)]
+
+sum_system_total_stopped = filtered_data['system_total_stopped'].sum()
+
+print(f"The sum of system_total_stopped between steps {training_timesteps} and {total_timesteps} is: {sum_system_total_stopped}")
+
 
 plot()
 
