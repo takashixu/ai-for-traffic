@@ -22,9 +22,9 @@ Reward fns:
 
 alpha = 0.5
 gamma = 0.5
-training_timesteps = 10000 # make sure training is less than total time steps
-total_timesteps = 20000
-gui = True
+training_timesteps = 50000 # make sure training is less than total time steps
+total_timesteps = 60000
+gui = False
 save_output = False
 
 decay = 1
