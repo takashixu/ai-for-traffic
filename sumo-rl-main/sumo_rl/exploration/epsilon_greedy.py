@@ -12,10 +12,10 @@ class EpsilonGreedy:
         self.min_epsilon = min_epsilon
         self.decay = decay
 
-    def choose(self, q_table, state, action_space):
+    def choose(self, q_table, state, action_space, done=False):
         """Choose action based on epsilon greedy strategy."""
         np.random.seed(123456789)
-        if np.random.rand() < self.epsilon:
+        if np.random.rand() < self.epsilon and not done:
             action = int(action_space.sample())
         else:
             action = np.argmax(q_table[state])

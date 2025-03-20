@@ -26,9 +26,9 @@ class QLAgent:
                 temp_state = [int(item) for item in state]
                 writer.writerow([timestep, temp_state[2:6], actions[0], actions[1]])
 
-    def act(self):
+    def act(self, done=False):
         """Choose action based on Q-table."""
-        self.action = self.exploration.choose(self.q_table, self.state, self.action_space)
+        self.action = self.exploration.choose(self.q_table, self.state, self.action_space, done=done)
         return self.action
 
     def learn(self, next_state, reward, done=False):
@@ -40,6 +40,7 @@ class QLAgent:
         s1 = next_state
         a = self.action
         if not done:
+            print('updating')
             self.q_table[s][a] = self.q_table[s][a] + self.alpha * (
                 reward + self.gamma * max(self.q_table[s1]) - self.q_table[s][a]
             )

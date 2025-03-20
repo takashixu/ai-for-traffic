@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2025-03-16 13:05:24 by Eclipse SUMO netedit Version 1.20.0
+<!-- generated on 2025-03-20 11:51:09 by Eclipse SUMO netedit Version 1.20.0
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/neteditConfiguration.xsd">
 
     <input>
@@ -397,13 +397,13 @@
         <param key="origTo" value="4279441447"/>
     </edge>
 
-    <tlLogic id="cluster_4279441445_4279441446_4279441447_53080628" type="actuated" programID="0" offset="0">
-        <phase duration="38" state="GGrrG" minDur="5" maxDur="50"/>
-        <phase duration="5"  state="yyrry"/>
+    <tlLogic id="cluster_4279441445_4279441446_4279441447_53080628" type="static" programID="0" offset="0">
+        <phase duration="42" state="GGrrG"/>
+        <phase duration="3"  state="yyrry"/>
         <phase duration="2"  state="rrrrr"/>
-        <phase duration="38" state="rrGGr" minDur="5" maxDur="50"/>
-        <phase duration="5"  state="rryyr"/>
-        <phase duration="2"  state="rrrrr"/>
+        <phase duration="37" state="rrGGr"/>
+        <phase duration="3"  state="rryyr"/>
+        <phase duration="3"  state="rrrrr"/>
     </tlLogic>
 
     <junction id="11133346825" type="dead_end" x="48.14" y="107.11" incLanes="1032757235#1_0" intLanes="" shape="47.97,108.10 48.31,106.12 47.97,108.10"/>

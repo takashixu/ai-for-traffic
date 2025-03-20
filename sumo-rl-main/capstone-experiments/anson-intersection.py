@@ -21,9 +21,9 @@ Reward fns:
 '''
 
 alpha = 0.5
-gamma = 0.5
-training_timesteps = 10000 # make sure training is less than total time steps
-total_timesteps = 20000
+gamma = 0.6
+training_timesteps = 50000 # make sure training is less than total time steps
+total_timesteps = 60000
 gui = True
 save_output = False
 
@@ -128,6 +128,7 @@ env = SumoEnvironment(
     observation_class=DiscreteObservationFunction,
     min_green=5,
     delta_time=5,
+    sumo_seed=69
 )
 
 for run in range(1, runs + 1):
@@ -153,7 +154,7 @@ for run in range(1, runs + 1):
         infos = []
         done = {"__all__": False}
         while not done["__all__"]:
-            actions = {ts: ql_agents[ts].act() for ts in ql_agents.keys()}
+            actions = {ts: ql_agents[ts].act(done=testing) for ts in ql_agents.keys()}
 
             s, r, done, info = env.step(action=actions)
 
