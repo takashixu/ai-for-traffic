@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2025-03-15 18:17:32 by Eclipse SUMO netedit Version 1.20.0
+<!-- generated on 2025-04-03 10:25:17 by Eclipse SUMO netedit Version 1.20.0
 -->
 
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
@@ -17,54 +17,22 @@
     <vType id="pt_tram" vClass="tram"/>
     <vType id="pt_trolleybus" vClass="bus"/>
     <!-- Routes -->
-    <route id="pt_bus_18:0" edges="-22277726#1 26379240#0">
-        <stop busStop="-6561896527" duration="20.00" until="45.00"/>
-    </route>
-    <route id="pt_bus_18:1" edges="-1022312150 22277726#0">
-        <stop busStop="6561896528" duration="20.00" until="51.00"/>
-    </route>
-    <route id="pt_bus_51B:0" edges="25738780#0 1082634545#0 195604807#1" color="57,163,82">
-        <stop busStop="6561896531" duration="20.00" until="48.00"/>
-    </route>
-    <route id="pt_bus_51B:1" edges="771466844#0 771466844#2 292218768#0 26379240#0" color="57,163,82">
-        <stop busStop="6561896530" duration="20.00" until="55.00"/>
-    </route>
-    <route id="pt_bus_51B:2" edges="25738780#0 1082634545#0 195604807#1" color="57,163,82">
-        <stop busStop="6561896531" duration="20.00" until="58.00"/>
-    </route>
-    <route id="pt_bus_51B:3" edges="771466844#0 771466844#2 292218768#0 26379240#0" color="57,163,82">
-        <stop busStop="6561896530" duration="20.00" until="56.00"/>
-    </route>
-    <route id="pt_bus_52:0" edges="771466844#0 771466844#2 292218768#0 25738794#0">
-        <stop busStop="6561896529" duration="20.00" until="69.00"/>
-    </route>
-    <route id="pt_bus_52:1" edges="25738780#0 1082634545#0 195604807#1">
-        <stop busStop="6561896531" duration="20.00" until="62.00"/>
-    </route>
-    <route id="pt_bus_79:0" edges="771466844#0 771466844#2 292218768#0 26379240#0">
-        <stop busStop="6561896530" duration="20.00" until="56.00"/>
-    </route>
-    <route id="pt_bus_79:1" edges="25738780#0 1082634545#0 195604807#1">
-        <stop busStop="6561896531" duration="20.00" until="54.00"/>
-    </route>
-    <route id="pt_bus_7:0" edges="-22277726#1 26379240#0">
-        <stop busStop="-6561896527" duration="20.00" until="45.00"/>
-    </route>
-    <route id="pt_bus_7:1" edges="-1022312150 22277726#0">
-        <stop busStop="6561896528" duration="20.00" until="50.00"/>
-    </route>
-    <route id="pt_bus_800:0" edges="771466844#0 771466844#2 292218768#0 26379240#0">
-        <stop busStop="6561896530" duration="20.00" until="56.00"/>
-    </route>
-    <route id="pt_bus_88:0" edges="771466844#0 771466844#2 292218768#0 26379240#0">
-        <stop busStop="6561896530" duration="20.00" until="69.00"/>
-    </route>
-    <route id="pt_bus_F:0" edges="-1022312150 22277726#0">
-        <stop busStop="6561896528" duration="20.00" until="72.00"/>
-    </route>
-    <route id="pt_bus_N:0" edges="25738780#0 22277726#0">
-        <stop busStop="6561896528" duration="20.00" until="52.00"/>
-    </route>
+    <route id="pt_bus_18:0" edges="-22277726#1 26379240#0"/>
+    <route id="pt_bus_18:1" edges="-1022312150 22277726#0"/>
+    <route id="pt_bus_51B:0" edges="25738780#0 1082634545#0 195604807#1" color="57,163,82"/>
+    <route id="pt_bus_51B:1" edges="771466844#0 771466844#2 292218768#0 26379240#0" color="57,163,82"/>
+    <route id="pt_bus_51B:2" edges="25738780#0 1082634545#0 195604807#1" color="57,163,82"/>
+    <route id="pt_bus_51B:3" edges="771466844#0 771466844#2 292218768#0 26379240#0" color="57,163,82"/>
+    <route id="pt_bus_52:0" edges="771466844#0 771466844#2 292218768#0 25738794#0"/>
+    <route id="pt_bus_52:1" edges="25738780#0 1082634545#0 195604807#1"/>
+    <route id="pt_bus_79:0" edges="771466844#0 771466844#2 292218768#0 26379240#0"/>
+    <route id="pt_bus_79:1" edges="25738780#0 1082634545#0 195604807#1"/>
+    <route id="pt_bus_7:0" edges="-22277726#1 26379240#0"/>
+    <route id="pt_bus_7:1" edges="-1022312150 22277726#0"/>
+    <route id="pt_bus_800:0" edges="771466844#0 771466844#2 292218768#0 26379240#0"/>
+    <route id="pt_bus_88:0" edges="771466844#0 771466844#2 292218768#0 26379240#0"/>
+    <route id="pt_bus_F:0" edges="-1022312150 22277726#0"/>
+    <route id="pt_bus_N:0" edges="25738780#0 22277726#0"/>
     <route id="r_0" edges="25738780#0 26379240#0"/>
     <route id="r_1" edges="25738780#0 1082634545#0"/>
     <route id="r_2" edges="25738780#0 22277726#0"/>
@@ -108,7 +76,7 @@
         <param key="completeness" value="0.01"/>
         <param key="name" value="AC Transit 18: Lake Merritt BART =&gt; University Village"/>
     </flow>
-    <flow id="pt_bus_51B:2" type="pt_bus" begin="132.00" line="51B:2" route="pt_bus_51B:2" end="100132.00" period="600.00">
+    <flow id="pt_bus_51B:2" type="pt_bus" begin="132.00" line="51B:2" route="pt_bus_51B:2" end="100132.00" number="1800">
         <param key="completeness" value="0.02"/>
         <param key="name" value="AC Transit 51B: Rockridge BART =&gt; Berkeley Amtrak"/>
     </flow>

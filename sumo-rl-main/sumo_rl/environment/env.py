@@ -119,7 +119,7 @@ class SumoEnvironment(gym.Env):
         else:
             self._sumo_binary = sumolib.checkBinary("sumo")
 
-        assert delta_time > yellow_time, "Time between actions must be at least greater than yellow time."
+        assert delta_time >= yellow_time, "Time between actions must be at least greater than yellow time."
 
         self.begin_time = begin_time
         self.sim_max_time = begin_time + num_seconds

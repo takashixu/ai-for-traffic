@@ -26,7 +26,7 @@ alpha = 0.5
 gamma = 0.6
 training_timesteps = 50000 # make sure training is less than total time steps
 total_timesteps = 60000
-gui = False
+gui = True
 save_output = False
 
 decay = 1
@@ -122,8 +122,8 @@ def plot():
     plt.show()
 
 env = SumoEnvironment(
-    net_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"capstone-nets"/"bancroft-telegraph.net.xml",
-    route_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"capstone-nets"/"simple.rou.xml",
+    net_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"capstone-nets_4way"/"shattuck-university.net.xml",
+    route_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"capstone-nets_4way"/"osm_pt.rou.xml",
     use_gui=gui,
     num_seconds=total_timesteps,
     reward_fn="queue",
@@ -147,7 +147,6 @@ for run in range(1, runs + 1):
         )
         for ts in env.ts_ids
     }
-
     running_data = []
 
     for episode in range(1, episodes + 1):
@@ -171,9 +170,9 @@ for run in range(1, runs + 1):
                 ql_agents[agent_id].learn(next_state=env.encode(s[agent_id], agent_id), reward=r[agent_id], done=testing)
 
             running_data.append({"time": env.sim_step,
-                                 "running": len(env.sumo.vehicle.getIDList()),
-                                 "waiting": env.sumo.simulation.getLoadedNumber() - env.sumo.simulation.getDepartedNumber()
-                                 })
+                        "running": len(env.sumo.vehicle.getIDList()),
+                        "waiting": env.sumo.simulation.getLoadedNumber() - env.sumo.simulation.getDepartedNumber()
+                        })
 
         for ts, agent in ql_agents.items():
             agent.export_q_table('q_table.csv', env.sim_step)
@@ -181,4 +180,5 @@ for run in range(1, runs + 1):
         export_running_vehicles_to_xml(running_data, "running_vehicles.xml")
 
 parse_xml("running_vehicles.xml", training_timesteps)
+
 env.close()

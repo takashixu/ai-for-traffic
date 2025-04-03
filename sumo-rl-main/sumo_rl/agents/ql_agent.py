@@ -40,7 +40,6 @@ class QLAgent:
         s1 = next_state
         a = self.action
         if not done:
-            print('updating')
             self.q_table[s][a] = self.q_table[s][a] + self.alpha * (
                 reward + self.gamma * max(self.q_table[s1]) - self.q_table[s][a]
             )
