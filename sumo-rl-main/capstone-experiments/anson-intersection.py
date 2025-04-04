@@ -44,9 +44,9 @@ from sumo_rl.environment.observations import DiscreteObservationFunction
 from pathlib import Path
 
 def run_experiment(alpha, gamma):
-    training_timesteps = 50000 # make sure training is less than total time steps
-    total_timesteps = 60000
-    gui = False
+    training_timesteps = 10000 # make sure training is less than total time steps
+    total_timesteps = 20000
+    gui = True
 
     decay = 1
     runs = 1
