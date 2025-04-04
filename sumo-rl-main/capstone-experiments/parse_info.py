@@ -23,6 +23,7 @@ def parse_xml(file_path, training_timesteps):
             total += running + waiting
 
     print(f"Total number of vehicles over time in the network: {total}")
+    return total
 
 def export_running_vehicles_to_xml(data, output_file):
     """
