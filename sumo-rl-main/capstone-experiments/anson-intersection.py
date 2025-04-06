@@ -44,9 +44,9 @@ from sumo_rl.environment.observations import DiscreteObservationFunction
 from pathlib import Path
 
 def run_experiment(alpha, gamma):
-    training_timesteps = 10000 # make sure training is less than total time steps
-    total_timesteps = 20000
-    gui = True
+    training_timesteps = 50000 # make sure training is less than total time steps
+    total_timesteps = 60000
+    gui = False
 
     decay = 1
     runs = 1
@@ -54,15 +54,13 @@ def run_experiment(alpha, gamma):
     testing = False
 
     env = SumoEnvironment(
-        net_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"capstone-nets_4way"/"shattuck-university.net.xml",
-        route_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"capstone-nets_4way"/"osm_pt.rou.xml",
+        net_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"capstone-nets"/"bancroft-telegraph.net.xml",
+        route_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"capstone-nets"/"simple.rou.xml",
         use_gui=gui,
         num_seconds=total_timesteps,
         reward_fn="queue",
         observation_class=DiscreteObservationFunction,
-        min_green=1,
-        delta_time=1,
-        yellow_time=1,
+        delta_time=5,
         sumo_seed=69
     )
 
@@ -90,6 +88,7 @@ def run_experiment(alpha, gamma):
 
             infos = []
             done = {"__all__": False}
+            current_time = env.sim_step
             while not done["__all__"]:
                 actions = {ts: ql_agents[ts].act(done=testing) for ts in ql_agents.keys()}
 
@@ -98,14 +97,18 @@ def run_experiment(alpha, gamma):
                 if env.sim_step == training_timesteps:
                     print('done training')
                     testing = True
+
+                for _ in range(env.delta_time):
+                    current_time += 1
+
+                    running_data.append({"time": current_time,
+                    "running": len(env.sumo.vehicle.getIDList()),
+                    "waiting": env.sumo.simulation.getLoadedNumber() - env.sumo.simulation.getDepartedNumber()
+                    })
                     
                 for agent_id in s.keys():
                     ql_agents[agent_id].learn(next_state=env.encode(s[agent_id], agent_id), reward=r[agent_id], done=testing)
 
-                running_data.append({"time": env.sim_step,
-                                    "running": len(env.sumo.vehicle.getIDList()),
-                                    "waiting": env.sumo.simulation.getLoadedNumber() - env.sumo.simulation.getDepartedNumber()
-                                    })
 
             for ts, agent in ql_agents.items():
                 agent.export_q_table('q_table.csv', env.sim_step)
@@ -122,7 +125,9 @@ def run_experiment(alpha, gamma):
 
     env.close()
 
-for alpha in np.arange(0.1, 1.1, 0.1):
-    for gamma in np.arange(0.1, 1.1, 0.1):
-        run_experiment(alpha, gamma)
-        print(f"Alpha: {alpha}, Gamma: {gamma} completed.")
+# for alpha in np.arange(0.1, 1.1, 0.1):
+#     for gamma in np.arange(0.1, 1.1, 0.1):
+alpha = .1
+gamma = .9
+run_experiment(alpha, gamma)
+print(f"Alpha: {alpha}, Gamma: {gamma} completed.")

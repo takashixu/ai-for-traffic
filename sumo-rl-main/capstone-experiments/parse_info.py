@@ -47,3 +47,5 @@ def export_running_vehicles_to_xml(data, output_file):
     # Write the XML to a file
     tree = ET.ElementTree(root)
     tree.write(output_file, encoding="utf-8", xml_declaration=True)
+
+parse_xml("/Users/takashi/School/Capstone/ai-for-traffic/sumo-rl-main/sumo_rl/capstone-nets/vehicles_per_timestep.xml", 0)
