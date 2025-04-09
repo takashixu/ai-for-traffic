@@ -43,9 +43,11 @@ from sumo_rl.exploration import EpsilonGreedy
 from sumo_rl.environment.observations import DiscreteObservationFunction
 from pathlib import Path
 
+# run sumocfg file: sumo -c shattuck-university.sumocfg --summary-output vehicles_per_timestep.xml
+
 def run_experiment(alpha, gamma):
-    training_timesteps = 50000 # make sure training is less than total time steps
-    total_timesteps = 60000
+    training_timesteps = 290000 # make sure training is less than total time steps
+    total_timesteps = 300000
     gui = False
 
     decay = 1
@@ -54,7 +56,7 @@ def run_experiment(alpha, gamma):
     testing = False
 
     env = SumoEnvironment(
-        net_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"capstone-nets"/"bancroft-telegraph.net.xml",
+        net_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"capstone-nets"/"telegraph-bancroft.net.xml",
         route_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"capstone-nets"/"simple.rou.xml",
         use_gui=gui,
         num_seconds=total_timesteps,
@@ -100,10 +102,12 @@ def run_experiment(alpha, gamma):
 
                 for _ in range(env.delta_time):
                     current_time += 1
+                    vehicle_ids = env.sumo.vehicle.getIDList()
 
                     running_data.append({"time": current_time,
-                    "running": len(env.sumo.vehicle.getIDList()),
-                    "waiting": env.sumo.simulation.getLoadedNumber() - env.sumo.simulation.getDepartedNumber()
+                    "running": len(vehicle_ids),
+                    "waiting": max(0, env.sumo.simulation.getLoadedNumber() - env.sumo.simulation.getDepartedNumber()),
+                    "halting": sum(1 for vehicle_id in vehicle_ids if env.sumo.vehicle.getSpeed(vehicle_id) < 0.1),
                     })
                     
                 for agent_id in s.keys():
@@ -128,6 +132,6 @@ def run_experiment(alpha, gamma):
 # for alpha in np.arange(0.1, 1.1, 0.1):
 #     for gamma in np.arange(0.1, 1.1, 0.1):
 alpha = .1
-gamma = .9
+gamma = .4
 run_experiment(alpha, gamma)
 print(f"Alpha: {alpha}, Gamma: {gamma} completed.")

@@ -20,11 +20,11 @@ class QLAgent:
 
     def export_q_table(self, filename, timestep):
         """Export Q-table to a CSV file with a column for the timestep."""
+        print(self.q_table)
         with open(filename, mode='a', newline='') as file:
             writer = csv.writer(file)
             for state, actions in self.q_table.items():
-                temp_state = [int(item) for item in state]
-                writer.writerow([timestep, temp_state[2:6], actions[0], actions[1]])
+                writer.writerow([timestep, state, actions])
 
     def act(self, done=False):
         """Choose action based on Q-table."""

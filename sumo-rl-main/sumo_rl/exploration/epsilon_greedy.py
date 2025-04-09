@@ -18,7 +18,10 @@ class EpsilonGreedy:
         if np.random.rand() < self.epsilon and not done:
             action = int(action_space.sample())
         else:
-            action = np.argmax(q_table[state])
+            np.random.seed()
+            max_value = max(q_table[state])
+            max_indices = [i for i, value in enumerate(q_table[state]) if value == max_value]
+            action = np.random.choice(max_indices)
 
         self.epsilon = max(self.epsilon * self.decay, self.min_epsilon)
         # print(self.epsilon)
