@@ -12,7 +12,7 @@ import numpy as np
 import csv
 import seaborn as sns
 
-from parse_info import parse_xml, export_running_vehicles_to_xml
+from parse_info import parse_xml, export_running_vehicles_to_xml, export_vehicle_ids_to_xml
 
 '''
 Reward fns:
@@ -46,8 +46,8 @@ from pathlib import Path
 # run sumocfg file: sumo -c shattuck-university.sumocfg --summary-output vehicles_per_timestep.xml
 
 def run_experiment(alpha, gamma):
-    training_timesteps = 290000 # make sure training is less than total time steps
-    total_timesteps = 300000
+    training_timesteps = 50000 # make sure training is less than total time steps
+    total_timesteps = 60000
     gui = False
 
     decay = 1
@@ -56,8 +56,8 @@ def run_experiment(alpha, gamma):
     testing = False
 
     env = SumoEnvironment(
-        net_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"capstone-nets"/"telegraph-bancroft.net.xml",
-        route_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"capstone-nets"/"simple.rou.xml",
+        net_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"capstone-nets_4way"/"shattuck-university.net.xml",
+        route_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"capstone-nets_4way"/"simple.rou.xml",
         use_gui=gui,
         num_seconds=total_timesteps,
         reward_fn="queue",
@@ -81,6 +81,7 @@ def run_experiment(alpha, gamma):
         }
 
         running_data = []
+        vehicles = {}
 
         for episode in range(1, episodes + 1):
             if episode != 1:
@@ -109,6 +110,8 @@ def run_experiment(alpha, gamma):
                     "waiting": max(0, env.sumo.simulation.getLoadedNumber() - env.sumo.simulation.getDepartedNumber()),
                     "halting": sum(1 for vehicle_id in vehicle_ids if env.sumo.vehicle.getSpeed(vehicle_id) < 0.1),
                     })
+
+                    vehicles[current_time] = vehicle_ids
                     
                 for agent_id in s.keys():
                     ql_agents[agent_id].learn(next_state=env.encode(s[agent_id], agent_id), reward=r[agent_id], done=testing)
@@ -118,6 +121,7 @@ def run_experiment(alpha, gamma):
                 agent.export_q_table('q_table.csv', env.sim_step)
                 
             export_running_vehicles_to_xml(running_data, "running_vehicles.xml")
+            export_vehicle_ids_to_xml(vehicles, "vehicle_ids.xml")
 
         total = parse_xml("running_vehicles.xml", training_timesteps)
         with open("results.csv", mode="a", newline="") as file:
@@ -131,7 +135,7 @@ def run_experiment(alpha, gamma):
 
 # for alpha in np.arange(0.1, 1.1, 0.1):
 #     for gamma in np.arange(0.1, 1.1, 0.1):
-alpha = .1
-gamma = .4
+alpha = .7
+gamma = .8
 run_experiment(alpha, gamma)
 print(f"Alpha: {alpha}, Gamma: {gamma} completed.")
