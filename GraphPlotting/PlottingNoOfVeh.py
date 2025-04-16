@@ -48,8 +48,8 @@ def aggregate_by_minute(timesteps, running_vehicles, minute_interval=60):
 def main():
     # File paths
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    noRL_file = os.path.join(current_dir, 'vehicles_per_timestep_noRL.xml')
-    withRL_file = os.path.join(current_dir, 'running_vehicles_withRL.xml')
+    noRL_file = os.path.join(current_dir, '4-way', 'No_RL', 'vehicles_per_timestep_noRL.xml')
+    withRL_file = os.path.join(current_dir, '4-way', 'RL', 'running_vehicles_withRL.xml')
     
     # Extract data from no RL file
     noRL_timesteps, noRL_running = extract_data_from_xml(noRL_file)
