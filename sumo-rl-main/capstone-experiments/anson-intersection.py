@@ -50,6 +50,7 @@ def run_experiment(alpha, gamma):
     training_timesteps = 1000 # make sure training is less than total time steps
     total_timesteps = 2000
     gui = False
+    should_load_q_table = True
 
     decay = 1
     runs = 1
@@ -84,8 +85,10 @@ def run_experiment(alpha, gamma):
         running_data = []
         vehicles = {}
 
-        for ts in env.ts_ids:
-            ql_agents[ts].load_q_table(f'q_table_{ts}.pkl')
+
+        if should_load_q_table:
+            for ts in env.ts_ids:
+                ql_agents[ts].load_q_table(f'q_table_{ts}.pkl')
 
         for episode in range(1, episodes + 1):
             if episode != 1:
@@ -134,10 +137,3 @@ def run_experiment(alpha, gamma):
             writer.writerow([alpha, gamma, total])
 
     env.close()
-
-# for alpha in np.arange(0.1, 1.1, 0.1):
-#     for gamma in np.arange(0.1, 1.1, 0.1):
-alpha = .7
-gamma = .8
-run_experiment(alpha, gamma)
-print(f"Alpha: {alpha}, Gamma: {gamma} completed.")
