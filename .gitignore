@@ -1,2 +1,5 @@
 *.csv
 *.pdf
+*.xml
+*.DS_Store
+*.pkl

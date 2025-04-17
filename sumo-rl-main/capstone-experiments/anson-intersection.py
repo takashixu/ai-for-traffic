@@ -3,6 +3,7 @@ import os
 import sys
 import glob
 from itertools import cycle
+import pickle
 
 import pandas as pd
 from pathlib import Path
@@ -46,8 +47,8 @@ from pathlib import Path
 # run sumocfg file: sumo -c shattuck-university.sumocfg --summary-output vehicles_per_timestep.xml
 
 def run_experiment(alpha, gamma):
-    training_timesteps = 50000 # make sure training is less than total time steps
-    total_timesteps = 60000
+    training_timesteps = 1000 # make sure training is less than total time steps
+    total_timesteps = 2000
     gui = False
 
     decay = 1
@@ -83,6 +84,9 @@ def run_experiment(alpha, gamma):
         running_data = []
         vehicles = {}
 
+        for ts in env.ts_ids:
+            ql_agents[ts].load_q_table(f'q_table_{ts}.pkl')
+
         for episode in range(1, episodes + 1):
             if episode != 1:
                 initial_states = env.reset()
@@ -100,6 +104,8 @@ def run_experiment(alpha, gamma):
                 if env.sim_step == training_timesteps:
                     print('done training')
                     testing = True
+                    for ts, agent in ql_agents.items():
+                        agent.save_q_table(f"q_table_{ts}.pkl")
 
                 for _ in range(env.delta_time):
                     current_time += 1
@@ -115,10 +121,6 @@ def run_experiment(alpha, gamma):
                     
                 for agent_id in s.keys():
                     ql_agents[agent_id].learn(next_state=env.encode(s[agent_id], agent_id), reward=r[agent_id], done=testing)
-
-
-            for ts, agent in ql_agents.items():
-                agent.export_q_table('q_table.csv', env.sim_step)
                 
             export_running_vehicles_to_xml(running_data, "running_vehicles.xml")
             export_vehicle_ids_to_xml(vehicles, "vehicle_ids.xml")

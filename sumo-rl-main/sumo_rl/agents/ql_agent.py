@@ -1,6 +1,7 @@
 """Q-learning Agent class."""
 from sumo_rl.exploration.epsilon_greedy import EpsilonGreedy
 import csv
+import pickle
 
 
 class QLAgent:
@@ -45,3 +46,13 @@ class QLAgent:
             )
         self.state = s1
         self.acc_reward += reward
+
+    def save_q_table(self, filename):
+        """Save the Q-table to a file."""
+        with open(filename, 'wb') as file:
+            pickle.dump(self.q_table, file)
+
+    def load_q_table(self, filename):
+        """Load the Q-table from a file."""
+        with open(filename, 'rb') as file:
+            self.q_table = pickle.load(file)
