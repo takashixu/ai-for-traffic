@@ -47,19 +47,19 @@ from pathlib import Path
 # run sumocfg file: sumo -c shattuck-university.sumocfg --summary-output vehicles_per_timestep.xml
 
 def run_experiment(alpha, gamma):
-    training_timesteps = 1000 # make sure training is less than total time steps
-    total_timesteps = 2000
-    gui = False
+    training_timesteps = 0 # make sure training is less than total time steps
+    total_timesteps = 10000
+    gui = True
     should_load_q_table = True
 
     decay = 1
     runs = 1
     episodes = 1
-    testing = False
+    testing = True
 
     env = SumoEnvironment(
         net_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"capstone-nets_4way"/"shattuck-university.net.xml",
-        route_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"capstone-nets_4way"/"simple.rou.xml",
+        route_file=Path.cwd()/"sumo-rl-main"/"sumo_rl"/"capstone-nets_4way"/"poisson.rou.xml",
         use_gui=gui,
         num_seconds=total_timesteps,
         reward_fn="queue",
@@ -104,7 +104,7 @@ def run_experiment(alpha, gamma):
 
                 s, r, done, info = env.step(action=actions)
 
-                if env.sim_step == training_timesteps:
+                if env.sim_step == training_timesteps and not testing:
                     print('done training')
                     testing = True
                     for ts, agent in ql_agents.items():
@@ -125,10 +125,10 @@ def run_experiment(alpha, gamma):
                 for agent_id in s.keys():
                     ql_agents[agent_id].learn(next_state=env.encode(s[agent_id], agent_id), reward=r[agent_id], done=testing)
                 
-            export_running_vehicles_to_xml(running_data, "running_vehicles.xml")
-            export_vehicle_ids_to_xml(vehicles, "vehicle_ids.xml")
+            export_running_vehicles_to_xml(running_data, f"running_vehicles_{'testing' if testing else 'train'}.xml")
+            export_vehicle_ids_to_xml(vehicles, f"vehicle_ids_{'testing' if testing else 'train'}.xml")
 
-        total = parse_xml("running_vehicles.xml", training_timesteps)
+        total = parse_xml(f"running_vehicles_{'testing' if testing else 'train'}.xml", training_timesteps)
         with open("results.csv", mode="a", newline="") as file:
             writer = csv.writer(file)
             # Write the header only if the file is empty
@@ -137,3 +137,6 @@ def run_experiment(alpha, gamma):
             writer.writerow([alpha, gamma, total])
 
     env.close()
+
+alpha, gamma = 0.7, 0.8
+run_experiment(alpha, gamma)
