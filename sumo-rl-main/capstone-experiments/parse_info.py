@@ -61,4 +61,4 @@ def export_vehicle_ids_to_xml(timesteps_data, output_file):
     tree = ET.ElementTree(root)
     tree.write(output_file, encoding="UTF-8", xml_declaration=True)
 
-parse_xml("/Users/takashi/School/Capstone/ai-for-traffic/sumo-rl-main/sumo_rl/capstone-nets_4way/vehicles_per_timestep.xml", 0)
+# parse_xml("/Users/takashi/School/Capstone/ai-for-traffic/sumo-rl-main/sumo_rl/capstone-nets_4way/vehicles_per_timestep.xml", 0)
