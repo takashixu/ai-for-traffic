@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-03-10 18:19:16 by Eclipse SUMO netconvert Version 1.20.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <type-files value="${SUMO_HOME}/data/typemap/osmNetconvert.typ.xml,${SUMO_HOME}/data/typemap/osmNetconvertAerialway.typ.xml"/>
+        <osm-files value="osm_bbox.osm.xml.gz"/>
+    </input>
+
+    <output>
+        <output-file value="osm.net.xml.gz"/>
+        <output.street-names value="true"/>
+        <output.original-names value="true"/>
+        <ptstop-output value="osm_stops.add.xml"/>
+        <ptline-output value="osm_ptlines.xml"/>
+    </output>
+
+    <projection>
+        <proj.utm value="true"/>
+    </projection>
+
+    <processing>
+        <geometry.remove value="true"/>
+        <roundabouts.guess value="true"/>
+    </processing>
+
+    <tls_building>
+        <tls.discard-simple value="true"/>
+        <tls.join value="true"/>
+        <tls.guess-signals value="true"/>
+        <tls.default-type value="actuated"/>
+    </tls_building>
+
+    <ramp_guessing>
+        <ramps.guess value="true"/>
+    </ramp_guessing>
+
+    <junctions>
+        <junctions.join value="true"/>
+        <junctions.corner-detail value="5"/>
+    </junctions>
+
+    <railway>
+        <railway.topology.repair value="true"/>
+    </railway>
+
+</configuration>
+-->
+
+<ptLines xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/ptlines_file.xsd">
+    <ptLine id="2630080" name="AC Transit 51B: Rockridge BART =&gt; Berkeley Marina" line="51B" type="bus" vClass="bus" color="57,163,82" completeness="0.02" missingBefore="30" missingAfter="25">
+        <route edges="25738780#0 1082634545#0 195604807#1"/>
+        <busStop id="6561896531" name="University Avenue &amp; Shattuck Avenue"/>
+    </ptLine>
+    <ptLine id="2630081" name="AC Transit 51B: Berkeley Marina =&gt; Rockridge BART" line="51B" type="bus" vClass="bus" color="57,163,82" completeness="0.02" missingBefore="26" missingAfter="39">
+        <route edges="771466844#0 771466844#2 292218768#0 26379240#0"/>
+        <busStop id="6561896530" name="University Avenue &amp; Shattuck Avenue"/>
+    </ptLine>
+    <ptLine id="2630160" name="AC Transit 52: University Village =&gt; U.C. Campus" line="52" type="bus" vClass="bus" completeness="0.02" missingBefore="42" missingAfter="16">
+        <route edges="771466844#0 771466844#2 292218768#0 25738794#0"/>
+        <busStop id="6561896529" name="University Avenue &amp; Kala Bagai Way"/>
+    </ptLine>
+    <ptLine id="2630161" name="AC Transit 52: U.C. Campus =&gt; University Village" line="52" type="bus" vClass="bus" completeness="0.02" missingBefore="8" missingAfter="41">
+        <route edges="25738780#0 1082634545#0 195604807#1"/>
+        <busStop id="6561896531" name="University Avenue &amp; Shattuck Avenue"/>
+    </ptLine>
+    <ptLine id="2631626" name="AC Transit 18: University Village =&gt; Lake Merritt BART" line="18" type="bus" vClass="bus" completeness="0.01" missingBefore="50" missingAfter="77">
+        <route edges="-22277726#1 26379240#0"/>
+        <busStop id="-6561896527" name="Shattuck Avenue &amp; University Avenue"/>
+    </ptLine>
+    <ptLine id="2631627" name="AC Transit 18: Lake Merritt BART =&gt; University Village" line="18" type="bus" vClass="bus" completeness="0.01" missingBefore="78" missingAfter="41">
+        <route edges="-1022312150 22277726#0"/>
+        <busStop id="6561896528" name="Shattuck Avenue &amp; University Avenue"/>
+    </ptLine>
+    <ptLine id="2640395" name="AC Transit 51B: Rockridge BART =&gt; Berkeley Amtrak" line="51B" type="bus" vClass="bus" color="57,163,82" completeness="0.02" missingBefore="30" missingAfter="21">
+        <route edges="25738780#0 1082634545#0 195604807#1"/>
+        <busStop id="6561896531" name="University Avenue &amp; Shattuck Avenue"/>
+    </ptLine>
+    <ptLine id="2640396" name="AC Transit 51B: Berkeley Amtrak =&gt; Rockridge BART" line="51B" type="bus" vClass="bus" color="57,163,82" completeness="0.02" missingBefore="22" missingAfter="39">
+        <route edges="771466844#0 771466844#2 292218768#0 26379240#0"/>
+        <busStop id="6561896530" name="University Avenue &amp; Shattuck Avenue"/>
+    </ptLine>
+    <ptLine id="2641673" name="AC Transit 88: Lake Merritt BART =&gt; Downtown Berkeley" line="88" type="bus" vClass="bus" completeness="0.01" missingBefore="78" missingAfter="3">
+        <route edges="771466844#0 771466844#2 292218768#0 26379240#0"/>
+        <busStop id="6561896530" name="University Avenue &amp; Shattuck Avenue"/>
+    </ptLine>
+    <ptLine id="2643555" name="AC Transit 7: El Cerrito del Norte BART =&gt; Emeryville Amtrak" line="7" type="bus" vClass="bus" completeness="0.01" missingBefore="100" missingAfter="57">
+        <route edges="-22277726#1 26379240#0"/>
+        <busStop id="-6561896527" name="Shattuck Avenue &amp; University Avenue"/>
+    </ptLine>
+    <ptLine id="2643556" name="AC Transit 7: Emeryville Amtrak =&gt; El Cerrito del Norte BART" line="7" type="bus" vClass="bus" completeness="0.01" missingBefore="60" missingAfter="97">
+        <route edges="-1022312150 22277726#0"/>
+        <busStop id="6561896528" name="Shattuck Avenue &amp; University Avenue"/>
+    </ptLine>
+    <ptLine id="2716239" name="AC Transit 800: Richmond BART =&gt; Market &amp; Van Ness" line="800" type="bus" vClass="bus" period="1800" completeness="0.01" missingBefore="88" missingAfter="63">
+        <route edges="771466844#0 771466844#2 292218768#0 26379240#0"/>
+        <busStop id="6561896530" name="University Avenue &amp; Shattuck Avenue"/>
+    </ptLine>
+    <ptLine id="2718360" name="AC Transit F: Salesforce Transit Center =&gt; U.C. Campus" line="F" type="bus" vClass="bus" completeness="0.01" missingBefore="50" missingAfter="18">
+        <route edges="-1022312150 22277726#0"/>
+        <busStop id="6561896528" name="Shattuck Avenue &amp; University Avenue"/>
+    </ptLine>
+    <ptLine id="8759933" name="AC Transit 79: El Cerrito Plaza BART =&gt; Rockridge BART" line="79" type="bus" vClass="bus" period="1800" completeness="0.01" missingBefore="45" missingAfter="45">
+        <route edges="771466844#0 771466844#2 292218768#0 26379240#0"/>
+        <busStop id="6561896530" name="University Avenue &amp; Shattuck Avenue"/>
+    </ptLine>
+    <ptLine id="9371293" name="AC Transit 79: Rockridge BART =&gt; El Cerrito Plaza BART" line="79" type="bus" vClass="bus" period="1800" completeness="0.01" missingBefore="37" missingAfter="47">
+        <route edges="25738780#0 1082634545#0 195604807#1"/>
+        <busStop id="6561896531" name="University Avenue &amp; Shattuck Avenue"/>
+    </ptLine>
+    <ptLine id="9712120" name="Bear Transit N: Downtown Berkeley BART =&gt; Hearst Mining Circle =&gt; Downtown Berkeley BART" line="N" type="bus" vClass="bus" completeness="0.02" missingBefore="2" missingAfter="40">
+        <route edges="25738780#0 22277726#0"/>
+        <busStop id="6561896528" name="Shattuck Avenue &amp; University Avenue"/>
+    </ptLine>
+    <ptLine id="9723856" name="AC Transit 800: Market &amp; Van Ness =&gt; Richmond BART" line="800" type="bus" vClass="bus" completeness="0.01" missingBefore="89" missingAfter="83">
+        <route edges="-1022312150 1082634545#0 195604807#1"/>
+        <busStop id="6561896531" name="University Avenue &amp; Shattuck Avenue"/>
+    </ptLine>
+</ptLines>

@@ -1,1 +1,0 @@
-sumo -c osm.sumocfg --tripinfo-output tripinfo.xml --fcd-output sumoTrace.xml --summary summary.xml --queue-output queue-output.xml --statistic-output stats.xml
