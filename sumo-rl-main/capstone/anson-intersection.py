@@ -47,15 +47,15 @@ from pathlib import Path
 # run sumocfg file: sumo -c shattuck-university.sumocfg --summary-output vehicles_per_timestep.xml
 
 def run_experiment(alpha, gamma):
-    training_timesteps = 0 # make sure training is less than total time steps
-    total_timesteps = 10000
+    training_timesteps = 50000 # Make sure training is less than total time steps; set to 0 if you want to test a pre-trained Q-table
+    total_timesteps = 60000
     gui = False
-    should_load_q_table = True
+    should_load_q_table = False # Set to True if you want to load a pre-trained Q-table
 
     decay = 1
     runs = 1
     episodes = 1
-    testing = True
+    testing = False # Set to True if you want to test a pre-trained Q-table
 
     env = SumoEnvironment(
         net_file=Path.cwd()/"sumo-rl-main"/"capstone"/"networks"/"capstone-nets-4way"/"shattuck-university.net.xml",
@@ -88,7 +88,7 @@ def run_experiment(alpha, gamma):
 
         if should_load_q_table:
             for ts in env.ts_ids:
-                ql_agents[ts].load_q_table(f'q_table_{ts}.pkl')
+                ql_agents[ts].load_q_table(Path.cwd()/"sumo-rl-main"/"capstone"/"q-tables"/f'q_table_{ts}.pkl')
 
         for episode in range(1, episodes + 1):
             if episode != 1:
@@ -108,7 +108,7 @@ def run_experiment(alpha, gamma):
                     print('done training')
                     testing = True
                     for ts, agent in ql_agents.items():
-                        agent.save_q_table(f"q_table_{ts}.pkl")
+                        agent.save_q_table(Path.cwd()/"sumo-rl-main"/"capstone"/"q-tables"/f"q_table_{ts}.pkl")
 
                 for _ in range(env.delta_time):
                     current_time += 1
